@@ -1,2 +1,2 @@
-# DysonStar.v0.1
+# DysonStar v0.1
 Hello
