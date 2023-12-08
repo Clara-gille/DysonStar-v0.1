@@ -8,8 +8,6 @@ public class OrbitDisplay : MonoBehaviour {
     [SerializeField] int numSteps = 1000;
     //time between steps
     [SerializeField] float timeStep = 0.1f;
-    //use the physics time step instead of the time step
-    [SerializeField] bool usePhysicsTimeStep;
     
     //draw the orbits relative to the central body or the origin
     [SerializeField] bool relativeToBody;
@@ -97,13 +95,6 @@ public class OrbitDisplay : MonoBehaviour {
         return acceleration;
     }
     
-
-    void OnValidate () {
-        if (usePhysicsTimeStep) {
-            timeStep = Constants.PhysicsTimeStep;
-        }
-    }
-
     class VirtualBody {
         public Vector3 position;
         public Vector3 velocity;
