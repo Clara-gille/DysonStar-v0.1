@@ -10,7 +10,7 @@ public class CelestialBody : MonoBehaviour
 {
     [SerializeField] float radius;
     [SerializeField] float surfaceGravity;
-    [SerializeField] Vector3 initialVelocity;
+    [SerializeField] public Vector3 initialVelocity;
     [SerializeField] string bodyName = "No Name";
     Transform meshHolder;
     

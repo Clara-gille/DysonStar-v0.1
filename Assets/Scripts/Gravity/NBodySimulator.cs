@@ -27,6 +27,7 @@ public class NBodySimulator : MonoBehaviour
         }
     }
     
+    //TODO : use Barnes-Hut algorithm 
     public static Vector3 CalculateAcceleration (Vector3 point, CelestialBody ignoreBody = null) {
         Vector3 acceleration = Vector3.zero;
         foreach (var body in Instance.bodies) {
