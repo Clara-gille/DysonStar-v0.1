@@ -28,7 +28,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
             ""id"": ""8963c00d-6554-414b-a1ba-4a584929b52d"",
             ""actions"": [
                 {
-                    ""name"": ""Arm"",
+                    ""name"": ""Aim"",
                     ""type"": ""Value"",
                     ""id"": ""3d3164ec-6e8e-4a8b-b20a-f5045a01073a"",
                     ""expectedControlType"": """",
@@ -45,7 +45,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arm"",
+                    ""action"": ""Aim"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +56,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arm"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,7 +67,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arm"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -78,7 +78,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arm"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -89,7 +89,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Arm"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -100,7 +100,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Arm = m_Player.FindAction("Arm", throwIfNotFound: true);
+        m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +162,12 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Arm;
+    private readonly InputAction m_Player_Aim;
     public struct PlayerActions
     {
         private @MagnetInputs m_Wrapper;
         public PlayerActions(@MagnetInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Arm => m_Wrapper.m_Player_Arm;
+        public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -177,16 +177,16 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Arm.started += instance.OnArm;
-            @Arm.performed += instance.OnArm;
-            @Arm.canceled += instance.OnArm;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Arm.started -= instance.OnArm;
-            @Arm.performed -= instance.OnArm;
-            @Arm.canceled -= instance.OnArm;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -206,6 +206,6 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnArm(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }

@@ -6,53 +6,43 @@ public class MagnetArmController : MonoBehaviour
 {
     [SerializeField] private GameObject magnetArm;
     [SerializeField] private GameObject emitPoint;
-    [SerializeField] private float armSpeed = 1f;
-    
-    private MagnetInputs _inputs;
-    private float _armRotation;
     
     void Awake()
     {
-        _inputs = new MagnetInputs();
-        
         //hide and lock cursor
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
-    
-    private void OnEnable()
-    {
-        _inputs.Enable();
-    }
-    
-    private void OnDisable()
-    {
-        _inputs.Disable();
-    }
-    
     
     
     // Update is called once per frame
     void Update()
     {
-        GetArmInput();
-        
+        RotateArm();
     }
     
-    void FixedUpdate()
+    private void RotateArm()
     {
-        MoveArm();
+        // Get the direction vector from emit point to mouse position
+        Vector3 direction = GetMouseDirection();
+
+        // Calculate the angle between the direction vector and the upward direction
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Rotate the arm accordingly
+        magnetArm.transform.rotation = Quaternion.Euler(0, 0, angle + 90);
     }
-    
-    private void GetArmInput()
+
+    private Vector3 GetMouseDirection()
     {
-        // Get the input for the arm movement
-        _armRotation += _inputs.Player.Arm.ReadValue<Vector2>().x * armSpeed;
-    }
-    
-    private void MoveArm()
-    {
-        // Rotate the arm
-        magnetArm.transform.rotation = Quaternion.Euler(0, 0, _armRotation);
+        // Get the mouse position in screen coordinates
+        Vector3 mousePos = Input.mousePosition;
+
+        // Convert mouse position to world coordinates
+        mousePos.z = emitPoint.transform.position.z - Camera.main.transform.position.z;
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+        // Calculate direction from emit point to mouse position
+        return worldMousePos - emitPoint.transform.position;
     }
 }
