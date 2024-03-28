@@ -1,0 +1,78 @@
+{
+    "name": "MagnetInputs",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "8963c00d-6554-414b-a1ba-4a584929b52d",
+            "actions": [
+                {
+                    "name": "Arm",
+                    "type": "Value",
+                    "id": "3d3164ec-6e8e-4a8b-b20a-f5045a01073a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "Pointer",
+                    "id": "ec4bc753-49d7-48bb-b4ea-a7e6389acd5f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Up",
+                    "id": "a12eb370-9523-4a74-a7a6-01152514fdf5",
+                    "path": "<Pointer>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "bde3c9ac-85eb-40a6-ba62-0c15d8ed5fb9",
+                    "path": "<Pointer>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "1bba41b7-4e49-49cd-a2c5-583f682a9488",
+                    "path": "<Pointer>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "3049d854-fc26-4cf3-a239-10cb5a2227f0",
+                    "path": "<Pointer>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Arm",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
