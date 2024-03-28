@@ -28,70 +28,46 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
             ""id"": ""8963c00d-6554-414b-a1ba-4a584929b52d"",
             ""actions"": [
                 {
-                    ""name"": ""Aim"",
-                    ""type"": ""Value"",
-                    ""id"": ""3d3164ec-6e8e-4a8b-b20a-f5045a01073a"",
-                    ""expectedControlType"": """",
+                    ""name"": ""ShootBlue"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c4adac1-8857-428e-9120-8c4adc38dba1"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShootRed"",
+                    ""type"": ""Button"",
+                    ""id"": ""23ed0d16-abfb-48d2-8e8d-3a05dd456ec9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Pointer"",
-                    ""id"": ""ec4bc753-49d7-48bb-b4ea-a7e6389acd5f"",
-                    ""path"": ""2DVector"",
+                    ""name"": """",
+                    ""id"": ""8560ce3a-4a70-4358-aece-2962b573da2d"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": true,
+                    ""action"": ""ShootBlue"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Up"",
-                    ""id"": ""a12eb370-9523-4a74-a7a6-01152514fdf5"",
-                    ""path"": ""<Pointer>/delta/up"",
+                    ""name"": """",
+                    ""id"": ""ed8f57c7-f231-4c6a-8d53-b8842d8e7312"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Aim"",
+                    ""action"": ""ShootRed"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""bde3c9ac-85eb-40a6-ba62-0c15d8ed5fb9"",
-                    ""path"": ""<Pointer>/delta/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""1bba41b7-4e49-49cd-a2c5-583f682a9488"",
-                    ""path"": ""<Pointer>/delta/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""3049d854-fc26-4cf3-a239-10cb5a2227f0"",
-                    ""path"": ""<Pointer>/delta/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -100,7 +76,8 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+        m_Player_ShootBlue = m_Player.FindAction("ShootBlue", throwIfNotFound: true);
+        m_Player_ShootRed = m_Player.FindAction("ShootRed", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +139,14 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Aim;
+    private readonly InputAction m_Player_ShootBlue;
+    private readonly InputAction m_Player_ShootRed;
     public struct PlayerActions
     {
         private @MagnetInputs m_Wrapper;
         public PlayerActions(@MagnetInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Aim => m_Wrapper.m_Player_Aim;
+        public InputAction @ShootBlue => m_Wrapper.m_Player_ShootBlue;
+        public InputAction @ShootRed => m_Wrapper.m_Player_ShootRed;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -177,16 +156,22 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Aim.started += instance.OnAim;
-            @Aim.performed += instance.OnAim;
-            @Aim.canceled += instance.OnAim;
+            @ShootBlue.started += instance.OnShootBlue;
+            @ShootBlue.performed += instance.OnShootBlue;
+            @ShootBlue.canceled += instance.OnShootBlue;
+            @ShootRed.started += instance.OnShootRed;
+            @ShootRed.performed += instance.OnShootRed;
+            @ShootRed.canceled += instance.OnShootRed;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Aim.started -= instance.OnAim;
-            @Aim.performed -= instance.OnAim;
-            @Aim.canceled -= instance.OnAim;
+            @ShootBlue.started -= instance.OnShootBlue;
+            @ShootBlue.performed -= instance.OnShootBlue;
+            @ShootBlue.canceled -= instance.OnShootBlue;
+            @ShootRed.started -= instance.OnShootRed;
+            @ShootRed.performed -= instance.OnShootRed;
+            @ShootRed.canceled -= instance.OnShootRed;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -206,6 +191,7 @@ public partial class @MagnetInputs: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnAim(InputAction.CallbackContext context);
+        void OnShootBlue(InputAction.CallbackContext context);
+        void OnShootRed(InputAction.CallbackContext context);
     }
 }
