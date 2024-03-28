@@ -75,10 +75,10 @@ public class SpacePlayerController : MonoBehaviour
         // Apply the movement force
         _rb.AddForce(movement, ForceMode.Impulse);
         
-        // Apply torque for leaning based on tilt input 
-        //TODO : unclamp it so that max angular velocity doesn't have to be infinite
-        Vector3 leanTorque = transform.forward * (_tiltInput * leanTorqueStrength);
-        _rb.AddTorque(leanTorque, ForceMode.Impulse);
+        // // Apply torque for leaning based on tilt input 
+        // //TODO : unclamp it so that max angular velocity doesn't have to be infinite
+        // Vector3 leanTorque = transform.forward * (_tiltInput * leanTorqueStrength);
+        // _rb.AddTorque(leanTorque, ForceMode.Impulse);
     }
 
     //player head and body movement
