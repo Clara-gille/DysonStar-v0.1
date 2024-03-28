@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,22 @@ public class MagnetArmShooter : MonoBehaviour
     void Awake()
     {
         _inputs = new MagnetInputs();
+        //Suscribe to the shoot events
+        _inputs.Player.ShootBlue.started += _ => StartBlueRay();
+        _inputs.Player.ShootRed.started += _ => StartRedRay();
+        _inputs.Player.ShootBlue.canceled += _ => StopBlueRay();
+        _inputs.Player.ShootRed.canceled += _ => StopRedRay();
     }
-    
+
+    private void OnDestroy()
+    {
+        //Unsubscribe from the shoot events
+        _inputs.Player.ShootBlue.started -= _ => StartBlueRay();
+        _inputs.Player.ShootRed.started -= _ => StartRedRay();
+        _inputs.Player.ShootBlue.canceled -= _ => StopBlueRay();
+        _inputs.Player.ShootRed.canceled -= _ => StopRedRay();
+    }
+
     private void OnEnable()
     {
         _inputs.Enable();
@@ -31,14 +46,37 @@ public class MagnetArmShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInputs();
         Shoot();
     }
     
-    private void GetInputs()
+    private void StartBlueRay()
     {
-        _shootingBlue = _inputs.Player.ShootBlue.IsPressed();
-        _shootingRed = _inputs.Player.ShootRed.IsPressed();
+        _shootingBlue = true;
+        _shootingRed ^= _shootingRed;
+    }
+    
+    private void StartRedRay()
+    {
+        _shootingRed = true;
+        _shootingBlue ^= _shootingBlue;
+    }
+    
+    private void StopBlueRay()
+    {
+        _shootingBlue = false;
+        if (_inputs.Player.ShootRed.IsPressed())
+        {
+            StartRedRay();
+        }
+    }
+    
+    private void StopRedRay()
+    {
+        _shootingRed = false;
+        if (_inputs.Player.ShootBlue.IsPressed())
+        {
+            StartBlueRay();
+        }
     }
 
     private void Shoot()
