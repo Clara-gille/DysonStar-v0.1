@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 public class SpacePlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
+    private Camera _cam;
+    private float _baseFOV = 60f;
     
     // Input manager
     private SpacePlayerInputs _inputs;
@@ -40,6 +42,7 @@ public class SpacePlayerController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _cam = Camera.main;
 
         //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -74,6 +77,9 @@ public class SpacePlayerController : MonoBehaviour
 
         // Apply the movement force
         _rb.AddForce(movement, ForceMode.Impulse);
+        
+        //Update camera FOV based on speed
+        _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.1f;
         
         
     }
