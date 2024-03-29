@@ -12,7 +12,6 @@ public class _PlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private Animator anim;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -29,7 +28,6 @@ public class _PlayerMouvement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         rb.freezeRotation = true;
     }
     // Update is called once per frame
