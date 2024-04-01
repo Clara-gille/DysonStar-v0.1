@@ -7,7 +7,7 @@ public class SpacePlayerController : MonoBehaviour
 {
     private Rigidbody _rb;
     private Camera _cam;
-    private float _baseFOV = 60f;
+    private readonly float _baseFOV = 75f;
     
     // Input manager
     private SpacePlayerInputs _inputs;
@@ -79,7 +79,7 @@ public class SpacePlayerController : MonoBehaviour
         _rb.AddForce(movement, ForceMode.Impulse);
         
         //Update camera FOV based on speed
-        // _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.1f;
+        _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
         
         
     }
