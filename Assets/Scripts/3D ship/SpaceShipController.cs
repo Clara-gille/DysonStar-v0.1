@@ -79,7 +79,7 @@ public class SpacePlayerController : MonoBehaviour
         _rb.AddForce(movement, ForceMode.Impulse);
         
         //Update camera FOV based on speed
-        _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.1f;
+        // _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.1f;
         
         
     }
