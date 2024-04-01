@@ -8,7 +8,8 @@ public class MagnetRay : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject emitPoint;
     [SerializeField] private GameObject endPoint;
-    [SerializeField] private float strength = 20;
+    [SerializeField] private float RepusleStrength = 20;
+    [SerializeField] private float AttractStrength = 20;
 
     //Detect when collision with a trigger is occurring
     private void OnTriggerStay2D(Collider2D other)
@@ -17,13 +18,13 @@ public class MagnetRay : MonoBehaviour
         {
             // Repulse the player in the opposite direction of the ray
             Vector3 direction = endPoint.transform.position - emitPoint.transform.position;
-            player.GetComponent<Rigidbody2D>().AddForce(-direction.normalized * strength / 25, ForceMode2D.Impulse);
+            player.GetComponent<Rigidbody2D>().AddForce(-direction.normalized * RepusleStrength / 25, ForceMode2D.Impulse);
         }
         else if (other.CompareTag(CompareTag("Blue") ? "Red" : "Blue")) // If block of different color
         {
             // Attract the player towards the magnet
             Vector3 direction = endPoint.transform.position - emitPoint.transform.position;
-            player.GetComponent<Rigidbody2D>().AddForce(direction.normalized * strength, ForceMode2D.Force);
+            player.GetComponent<Rigidbody2D>().AddForce(direction.normalized * AttractStrength, ForceMode2D.Force);
         }
     }
 }
