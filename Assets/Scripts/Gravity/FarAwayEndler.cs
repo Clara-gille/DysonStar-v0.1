@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndlessManager : MonoBehaviour {
+public class FarAwayEndlerManager : MonoBehaviour {
 
     public float distanceThreshold = 1000;
     List<Transform> physicsObjects;
-    SpacePlayerController ship;
+    SpaceShipController ship;
     Camera playerCamera;
 
     public event System.Action PostFloatingOriginUpdate;
 
     void Awake () {
-        ship = FindObjectOfType<SpacePlayerController> ();
+        ship = FindObjectOfType<SpaceShipController> ();
         var bodies = FindObjectsOfType<CelestialBody> ();
 
         physicsObjects = new List<Transform> ();

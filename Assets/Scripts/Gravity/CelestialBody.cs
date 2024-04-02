@@ -8,13 +8,13 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody))]
 public class CelestialBody : MonoBehaviour
 {
-    [SerializeField] float radius;
+    [SerializeField] public float radius;
     [SerializeField] float surfaceGravity;
     [SerializeField] public Vector3 initialVelocity;
-    [SerializeField] string bodyName = "No Name";
+    [SerializeField] public string bodyName = "No Name";
     Transform meshHolder;
     
-    [SerializeField]  Vector3 velocity { get; set; }
+    [SerializeField]  public Vector3 velocity { get; set; }
     [SerializeField]  public float mass { get; private set; }
     Rigidbody rb;
     

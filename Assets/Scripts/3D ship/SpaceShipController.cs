@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SpacePlayerController : MonoBehaviour
+public class SpaceShipController : MonoBehaviour
 {
-    private Rigidbody _rb;
+    public Rigidbody _rb;
     private Camera _cam;
     private readonly float _baseFOV = 75f;
     
