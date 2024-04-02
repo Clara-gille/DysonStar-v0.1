@@ -16,6 +16,7 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] float camSensitivity = 0.01f;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float tiltSpeed = 10f;
+    [SerializeField] float upDownMutliplier = 10;
     
     // Inputs 
     private Vector2 _movementInput;
@@ -70,7 +71,7 @@ public class SpaceShipController : MonoBehaviour
         // Calculate forward/backward movement
         Vector3 vertical = transform.forward * _movementInput.y;
         // Calculate up/down movement
-        Vector3 upDown = transform.up * _upDownInput;
+        Vector3 upDown = transform.up * (_upDownInput * upDownMutliplier);
 
         // Combine horizontal and vertical movement
         Vector3 movement = (horizontal + vertical + upDown).normalized * moveSpeed;
