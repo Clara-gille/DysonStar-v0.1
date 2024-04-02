@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Selection UI 1
-  m_Shader: {fileID: 4800000, guid: b22190699bf114f37b831cfcdf4bbce9, type: 3}
+  m_Name: Velocity Line 1
+  m_Shader: {fileID: 4800000, guid: fa3c9cb67ddb243efb2b8297105a1268, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -80,5 +80,5 @@ Material:
     - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 11.984314, g: 7.2784314, b: 0, a: 1}
