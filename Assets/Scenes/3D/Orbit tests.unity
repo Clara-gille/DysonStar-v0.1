@@ -582,6 +582,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -613,6 +625,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 19.225
       objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Name
       value: SpaceShip
@@ -631,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7783430218374601713, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: far clip plane
-      value: 1e+10
+      value: 1e+18
       objectReference: {fileID: 0}
     - target: {fileID: 7783430218374601713, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: near clip plane
@@ -767,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numSegments: 50
-  mat: {fileID: 2100000, guid: 587890ca77c29844dac759be79147fee, type: 2}
+  mat: {fileID: 2100000, guid: 8d80d9cd75dec594c87e1fa9b4214099, type: 2}
   thickness: 2.5
   lockedRadiusMultiplier: 1.3
   lockedAngle: 35
@@ -2495,7 +2511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 101}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924795029
