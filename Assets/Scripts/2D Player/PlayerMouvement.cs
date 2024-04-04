@@ -12,7 +12,6 @@ public class _PlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private Animator anim;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -29,7 +28,6 @@ public class _PlayerMouvement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         rb.freezeRotation = true;
     }
     // Update is called once per frame
@@ -47,47 +45,25 @@ public class _PlayerMouvement : MonoBehaviour
         if(IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
-            if (jumpBufferCounter > 0)
-            {
-                PerformJump();
-                jumpBufferCounter = 0; 
-            }
         }
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
-        }
-
-        if (jumpBufferCounter > 0)
-        {
-            jumpBufferCounter -= Time.deltaTime;
         }
         
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed && coyoteTimeCounter > 0f)
         {
-            if (coyoteTimeCounter > 0f)
-            {
-                PerformJump();
-            }
-            else
-            {
-                jumpBufferCounter = jumpBufferTime;
-            }
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
         if(context.canceled && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             coyoteTimeCounter = 0f;
         }
-    }
-    private void PerformJump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        coyoteTimeCounter = 0; 
     }
     private bool IsGrounded()
     {
