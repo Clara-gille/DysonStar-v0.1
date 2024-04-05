@@ -454,11 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: aimedRadiusMutliplier
-      value: 1.3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: lockedRadiusMultiplier
-      value: 1.1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: surfaceDstFadeOutRange.x
