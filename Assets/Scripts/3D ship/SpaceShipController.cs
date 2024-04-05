@@ -54,6 +54,9 @@ public class SpaceShipController : MonoBehaviour
     {
         GetRotateInputs();
         GetMovementInputs();
+        
+        //Display ship forward speed
+        Debug.Log(_rb.velocity.magnitude);
     }
 
     void FixedUpdate()
@@ -72,7 +75,7 @@ public class SpaceShipController : MonoBehaviour
         Vector3 vertical = transform.forward * _movementInput.y;
         // Calculate up/down movement
         Vector3 upDown = transform.up * (_upDownInput * upDownMutliplier);
-
+        
         // Combine horizontal and vertical movement
         Vector3 movement = (horizontal + vertical + upDown).normalized * moveSpeed;
 
@@ -80,7 +83,7 @@ public class SpaceShipController : MonoBehaviour
         _rb.AddForce(movement, ForceMode.Force);
         
         //Update camera FOV based on speed
-        _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
+        // _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
         
         
     }

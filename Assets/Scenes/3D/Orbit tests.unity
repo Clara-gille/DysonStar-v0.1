@@ -423,15 +423,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: moveSpeed
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: tiltSpeed
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: camSensitivity
-      value: 0.01
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: centreDot
@@ -503,6 +503,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119952085948135365, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119952085948135365, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
