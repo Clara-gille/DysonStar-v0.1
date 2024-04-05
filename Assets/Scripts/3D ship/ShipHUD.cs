@@ -28,7 +28,11 @@ public class ShipHUD : MonoBehaviour {
 
     void Start () {
         // Need to draw UI AFTER floating origin updates, otherwise may flicker when origin changes
-        FindObjectOfType<FarAwayEndlerManager> ().PostFloatingOriginUpdate += UpdateUI;
+        // FindObjectOfType<FarAwayEndlerManager> ().PostFloatingOriginUpdate += UpdateUI;
+    }
+    
+    void Update () {
+        UpdateUI ();
     }
 
     void Init () {
