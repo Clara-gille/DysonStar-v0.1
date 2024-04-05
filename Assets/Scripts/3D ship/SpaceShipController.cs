@@ -77,7 +77,7 @@ public class SpaceShipController : MonoBehaviour
         Vector3 movement = (horizontal + vertical + upDown).normalized * moveSpeed;
 
         // Apply the movement force
-        _rb.AddForce(movement, ForceMode.Impulse);
+        _rb.AddForce(movement, ForceMode.Force);
         
         //Update camera FOV based on speed
         _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
@@ -89,7 +89,7 @@ public class SpaceShipController : MonoBehaviour
     private void ShipRotate()
     {
         Vector3 torque = new Vector3(-_yRotationInput, _xRotationInput, _zRotationInput * tiltSpeed);
-        _rb.AddRelativeTorque(torque, ForceMode.Impulse);
+        _rb.AddRelativeTorque(torque, ForceMode.Force);
     }
     
     private void GetRotateInputs()

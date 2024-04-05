@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c79963c4ac234f438c9210d1edac425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceThreshold: 10000
+  distanceThreshold: 1000
 --- !u!1001 &417168971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,17 +367,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2914872096382674664, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: moveSpeed
-      value: 250
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: tiltSpeed
-      value: 0.05
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: camSensitivity
-      value: 0.0001
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: centreDot
@@ -389,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 1965264610}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityDisplayScale
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityVertical.head
@@ -449,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119952085948135365, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Drag
-      value: 0.001
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
