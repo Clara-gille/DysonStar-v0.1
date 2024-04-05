@@ -24,13 +24,13 @@ public class FarAwayEndlerManager : MonoBehaviour {
         playerCamera = Camera.main;
     }
 
-    void LateUpdate () {
+    void FixedUpdate () {
         UpdateFloatingOrigin ();
         if (PostFloatingOriginUpdate != null) {
             PostFloatingOriginUpdate ();
         }
     }
-
+    
     void UpdateFloatingOrigin () {
         Vector3 originOffset = playerCamera.transform.position;
         float dstFromOrigin = originOffset.magnitude;

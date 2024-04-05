@@ -37,7 +37,7 @@ public class CelestialBody : MonoBehaviour
     {
         mass = surfaceGravity * radius * radius / Constants.GravitationalConstant;
         meshHolder = transform.GetChild (0);
-        meshHolder.localScale = Vector3.one * radius;
+        meshHolder.localScale = Vector3.one * radius * 2;
         gameObject.name = bodyName;
     }
     
