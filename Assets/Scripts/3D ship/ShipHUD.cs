@@ -19,6 +19,7 @@ public class ShipHUD : MonoBehaviour {
     public Vector2 velocityIndicatorThicknessMinMax;
     public float maxVisDst;
     public float velocityDisplayScale = 1;
+    private const float MaxVelocityDisplay = 100;
 
     public CelestialBody lockedBody;
     Camera cam;
@@ -111,8 +112,6 @@ public class ShipHUD : MonoBehaviour {
         // Relative velocity lines
         if (PointIsOnScreen (planet.transform.position)) {
             float arrowHeadSizePercent = dstToPlanetSurface / maxVisDst;
-            float arrowOppacity = Mathf.Lerp (0.5f, 1, arrowHeadSizePercent);
-            Debug.Log (arrowHeadSizePercent);
             float arrowHeadSize = Mathf.Lerp (velocityIndicatorSizeMinMax.y, velocityIndicatorSizeMinMax.x, arrowHeadSizePercent);
             float indicatorThickness = Mathf.Lerp (velocityIndicatorThicknessMinMax.y, velocityIndicatorThicknessMinMax.x, dstToPlanetSurface / maxVisDst);
             float indicatorAngle = (relativeVelocity.x < 0) ? 180 : 0;
@@ -237,11 +236,22 @@ public class ShipHUD : MonoBehaviour {
             line.rectTransform.localPosition = pos;
             line.rectTransform.sizeDelta = new Vector2 (magnitude, thickness);
             line.material.SetVector ("_Size", line.rectTransform.sizeDelta);
+            
 
             head.rectTransform.localPosition = pos + (Vector2) line.rectTransform.right * magnitude;
             head.rectTransform.eulerAngles = Vector3.forward * angle;
 
             head.rectTransform.localScale = Vector3.one * arrowHeadSize;
+            
+            float opacity = magnitude / MaxVelocityDisplay;
+            // Adjust opacity of the head
+            Color headColor = head.color;
+            headColor.a = opacity; // Convert percentage to fraction
+            head.color = headColor;
+            
+            Color lineColor = line.color;
+            lineColor.a = opacity; // Convert percentage to fraction
+            line.color = lineColor;
         }
 
         public void SetActive (bool active) {

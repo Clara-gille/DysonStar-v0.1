@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityIndicatorThicknessMinMax.y
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Name
