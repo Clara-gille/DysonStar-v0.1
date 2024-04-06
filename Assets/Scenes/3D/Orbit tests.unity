@@ -464,23 +464,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: matchingSpeed
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: camSensitivity
       value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: upDownMutliplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: dotSize
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: centreDot
       value: 
       objectReference: {fileID: 1924795029}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: maxVisDst
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: planetInfo
       value: 
       objectReference: {fileID: 1965264610}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityDisplayScale
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityVertical.head
@@ -498,13 +510,33 @@ PrefabInstance:
       propertyPath: velocityHorizontal.line
       value: 
       objectReference: {fileID: 456704271}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: velocityIndicatorSizeMinMax.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: velocityIndicatorSizeMinMax.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: velocityIndicatorThicknessMinMax.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: velocityIndicatorThicknessMinMax.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: thickness
-      value: 3
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: lockedAngle
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: numSegments
@@ -512,19 +544,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: lockedColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: lockedColor.g
-      value: 0.4009434
+      value: 0.15225314
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: lockedColor.r
-      value: 0.72176164
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: aimedRadiusMutliplier
-      value: 1.5
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7288797909765370176, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: lockedRadiusMultiplier

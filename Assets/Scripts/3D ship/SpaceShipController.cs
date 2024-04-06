@@ -123,7 +123,7 @@ public class SpaceShipController : MonoBehaviour
             Vector3 acceleration = velocityDifference * matchingSpeed / Time.fixedDeltaTime;
         
             // Apply the acceleration as force
-            _rb.AddForce(acceleration, ForceMode.Acceleration);
+            _rb.AddForce(acceleration, ForceMode.Force);
         }
     }
 }
