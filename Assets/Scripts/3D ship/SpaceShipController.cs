@@ -13,11 +13,12 @@ public class SpaceShipController : MonoBehaviour
     private SpacePlayerInputs _inputs;
     
     [Header("Sensitivities and speeds")]
-    [SerializeField] float camSensitivity = 0.01f;
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float tiltSpeed = 10f;
-    [SerializeField] float upDownMutliplier = 10;
-    [SerializeField] float matchingSpeed = 10;
+    [SerializeField]
+    private float camSensitivity = 0.01f;
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float tiltSpeed = 10f;
+    [SerializeField] private float matchingSpeed = 10;
+    [SerializeField] private float forwardMultiplier = 10;
     
     // Inputs 
     private Vector2 _movementInput;
@@ -27,8 +28,9 @@ public class SpaceShipController : MonoBehaviour
     private float _zRotationInput = 0;
     private bool _matching;
 
-    ShipHUD _hud;
-    void Awake()
+    private ShipHUD _hud;
+
+    private void Awake()
     {
         _inputs = new SpacePlayerInputs();
     }
@@ -42,8 +44,8 @@ public class SpaceShipController : MonoBehaviour
     {
         _inputs.Disable();
     }
-    
-    void Start()
+
+    private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _cam = Camera.main;
@@ -60,7 +62,7 @@ public class SpaceShipController : MonoBehaviour
         GetMovementInputs();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         //update player movement and camera
         ShipMove();
@@ -73,12 +75,12 @@ public class SpaceShipController : MonoBehaviour
         // Calculate horizontal movement
         Vector3 horizontal = transform.right * _movementInput.x;
         // Calculate forward/backward movement
-        Vector3 vertical = transform.forward * _movementInput.y;
+        Vector3 vertical = transform.forward * (_movementInput.y * forwardMultiplier);
         // Calculate up/down movement
-        Vector3 upDown = transform.up * (_upDownInput * upDownMutliplier);
+        Vector3 upDown = transform.up * _upDownInput;
         
         // Combine horizontal and vertical movement
-        Vector3 movement = (horizontal + vertical + upDown).normalized * moveSpeed;
+        Vector3 movement = (horizontal + vertical + upDown) * moveSpeed;
 
         // Apply the movement force
         _rb.AddForce(movement, ForceMode.Force);
