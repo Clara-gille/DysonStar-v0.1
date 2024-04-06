@@ -20,7 +20,7 @@ public class ShipHUD : MonoBehaviour {
     public float maxVisDst;
     public float velocityDisplayScale = 1;
 
-    CelestialBody lockedBody;
+    public CelestialBody lockedBody;
     Camera cam;
     Transform camT;
     LockOnUI lockOnUI;

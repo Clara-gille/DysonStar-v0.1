@@ -80,6 +80,15 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Match"",
+                    ""type"": ""Button"",
+                    ""id"": ""411e0c44-4029-4dad-a603-59f564ed0393"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -335,6 +344,17 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Tilt"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e76dc5d1-d909-4cf0-8ad9-36f959732811"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Match"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -410,6 +430,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
         m_Player_UpDown = m_Player.FindAction("UpDown", throwIfNotFound: true);
         m_Player_Tilt = m_Player.FindAction("Tilt", throwIfNotFound: true);
+        m_Player_Match = m_Player.FindAction("Match", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -477,6 +498,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Down;
     private readonly InputAction m_Player_UpDown;
     private readonly InputAction m_Player_Tilt;
+    private readonly InputAction m_Player_Match;
     public struct PlayerActions
     {
         private @SpacePlayerInputs m_Wrapper;
@@ -487,6 +509,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Down => m_Wrapper.m_Player_Down;
         public InputAction @UpDown => m_Wrapper.m_Player_UpDown;
         public InputAction @Tilt => m_Wrapper.m_Player_Tilt;
+        public InputAction @Match => m_Wrapper.m_Player_Match;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -514,6 +537,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Tilt.started += instance.OnTilt;
             @Tilt.performed += instance.OnTilt;
             @Tilt.canceled += instance.OnTilt;
+            @Match.started += instance.OnMatch;
+            @Match.performed += instance.OnMatch;
+            @Match.canceled += instance.OnMatch;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -536,6 +562,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Tilt.started -= instance.OnTilt;
             @Tilt.performed -= instance.OnTilt;
             @Tilt.canceled -= instance.OnTilt;
+            @Match.started -= instance.OnMatch;
+            @Match.performed -= instance.OnMatch;
+            @Match.canceled -= instance.OnMatch;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -606,5 +635,6 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         void OnDown(InputAction.CallbackContext context);
         void OnUpDown(InputAction.CallbackContext context);
         void OnTilt(InputAction.CallbackContext context);
+        void OnMatch(InputAction.CallbackContext context);
     }
 }

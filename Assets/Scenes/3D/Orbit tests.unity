@@ -456,11 +456,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: moveSpeed
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: tiltSpeed
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: matchingSpeed
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: camSensitivity
@@ -476,7 +480,7 @@ PrefabInstance:
       objectReference: {fileID: 1965264610}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityDisplayScale
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityVertical.head

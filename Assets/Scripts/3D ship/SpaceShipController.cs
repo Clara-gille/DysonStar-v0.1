@@ -17,6 +17,7 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float tiltSpeed = 10f;
     [SerializeField] float upDownMutliplier = 10;
+    [SerializeField] float matchingSpeed = 10;
     
     // Inputs 
     private Vector2 _movementInput;
@@ -24,7 +25,9 @@ public class SpaceShipController : MonoBehaviour
     private float _xRotationInput = 0;
     private float _yRotationInput = 0;
     private float _zRotationInput = 0;
+    private bool _matching;
 
+    ShipHUD _hud;
     void Awake()
     {
         _inputs = new SpacePlayerInputs();
@@ -44,6 +47,7 @@ public class SpaceShipController : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _cam = Camera.main;
+        _hud = FindObjectOfType<ShipHUD>();
 
         //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -54,9 +58,6 @@ public class SpaceShipController : MonoBehaviour
     {
         GetRotateInputs();
         GetMovementInputs();
-        
-        //Display ship forward speed
-        Debug.Log(_rb.velocity.magnitude);
     }
 
     void FixedUpdate()
@@ -82,8 +83,10 @@ public class SpaceShipController : MonoBehaviour
         // Apply the movement force
         _rb.AddForce(movement, ForceMode.Force);
         
-        //Update camera FOV based on speed
-        // _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
+        if (_matching)
+        {
+            MatchSpeed();
+        }
         
         
     }
@@ -106,5 +109,21 @@ public class SpaceShipController : MonoBehaviour
     {
         _movementInput = _inputs.Player.Move.ReadValue<Vector2>();
         _upDownInput = _inputs.Player.UpDown.ReadValue<float>();
+        _matching = _inputs.Player.Match.IsInProgress();
+    }
+    
+    private void MatchSpeed()
+    {
+        if (_hud.lockedBody != null)
+        {
+            // Calculate the difference in velocity
+            Vector3 velocityDifference = _hud.lockedBody.velocity - _rb.velocity;
+        
+            // Calculate the acceleration needed to match the speed
+            Vector3 acceleration = velocityDifference * matchingSpeed / Time.fixedDeltaTime;
+        
+            // Apply the acceleration as force
+            _rb.AddForce(acceleration, ForceMode.Acceleration);
+        }
     }
 }
