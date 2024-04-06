@@ -103,7 +103,7 @@ public class ShipHUD : MonoBehaviour {
         Vector3 relativeVelocity = new Vector3 (vx, vy, vz);
 
         // Planet info
-        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * planet.radius * lockOnUI.lockedRadiusMultiplier + vertical * planet.radius * 0.35f;
+        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * (planet.radius * lockOnUI.lockedRadiusMultiplier * 1.8f) + vertical * (planet.radius * 1.5f) ;
         planetInfo.gameObject.SetActive (PointIsOnScreen (planetInfoWorldPos));
         planetInfo.rectTransform.localPosition = CalculateUIPos (planetInfoWorldPos);
         planetInfo.text = $"{planet.bodyName} \n{FormatDistance(dstToPlanetSurface)} \n{relativeVelocity.z:0}m/s";
