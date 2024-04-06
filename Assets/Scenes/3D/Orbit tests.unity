@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 1924795029}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: maxVisDst
-      value: 10000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: planetInfo
@@ -512,15 +512,15 @@ PrefabInstance:
       objectReference: {fileID: 456704271}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityIndicatorSizeMinMax.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityIndicatorSizeMinMax.y
-      value: 0.4
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityIndicatorThicknessMinMax.x
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: velocityIndicatorThicknessMinMax.y

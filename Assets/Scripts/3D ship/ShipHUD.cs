@@ -111,7 +111,8 @@ public class ShipHUD : MonoBehaviour {
         // Relative velocity lines
         if (PointIsOnScreen (planet.transform.position)) {
             float arrowHeadSizePercent = dstToPlanetSurface / maxVisDst;
-            //Debug.Log (arrowHeadSizePercent);
+            float arrowOppacity = Mathf.Lerp (0.5f, 1, arrowHeadSizePercent);
+            Debug.Log (arrowHeadSizePercent);
             float arrowHeadSize = Mathf.Lerp (velocityIndicatorSizeMinMax.y, velocityIndicatorSizeMinMax.x, arrowHeadSizePercent);
             float indicatorThickness = Mathf.Lerp (velocityIndicatorThicknessMinMax.y, velocityIndicatorThicknessMinMax.x, dstToPlanetSurface / maxVisDst);
             float indicatorAngle = (relativeVelocity.x < 0) ? 180 : 0;
