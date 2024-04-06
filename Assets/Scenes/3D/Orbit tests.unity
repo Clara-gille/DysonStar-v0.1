@@ -487,6 +487,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1924795029}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: matchHint
+      value: 
+      objectReference: {fileID: 1809396465}
+    - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: maxVisDst
       value: 2000
       objectReference: {fileID: 0}
