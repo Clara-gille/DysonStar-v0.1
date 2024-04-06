@@ -11,6 +11,7 @@ public class ShipHUD : MonoBehaviour {
     public float minAimAngle = 30;
     public Image centreDot;
     public TMPro.TMP_Text planetInfo;
+    public TMP_Text matchHint;
 
     [Header ("Velocity indicators")]
     public VelocityIndicator velocityHorizontal;
@@ -81,6 +82,7 @@ public class ShipHUD : MonoBehaviour {
         planetInfo.gameObject.SetActive (active);
         velocityHorizontal.SetActive (active);
         velocityVertical.SetActive (active);
+        matchHint.gameObject.SetActive (active);
     }
 
     void DrawPlanetHUD (CelestialBody planet) {
