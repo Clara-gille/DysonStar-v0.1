@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Freeze",
+                    "type": "Button",
+                    "id": "78709b8b-dd11-46b9-ab6d-28b5420c468c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,6 +99,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a81db351-cfea-41de-9383-f4a52491d947",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Freeze",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

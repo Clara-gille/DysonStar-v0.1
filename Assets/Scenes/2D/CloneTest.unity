@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b4ab4c886e5fd4d932a5859dc55f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clonePlayer: {fileID: 9125531746051725217, guid: 08aadc6da41fe4442b87ef86dd0b9206, type: 3}
+  clonePlayer: {fileID: 3584061085783972108, guid: 8c22859288b95c44c8eefaa273f839c8, type: 3}
 --- !u!212 &1188987929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -665,6 +665,10 @@ PrefabInstance:
     - target: {fileID: 3584061085783972108, guid: d439451e7f8efcb42bbb478ce805bc9b, type: 3}
       propertyPath: m_Name
       value: BasePlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878135505668756153, guid: d439451e7f8efcb42bbb478ce805bc9b, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

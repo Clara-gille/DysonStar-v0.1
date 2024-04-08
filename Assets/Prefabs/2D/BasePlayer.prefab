@@ -258,6 +258,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 012217d7-169e-4984-bced-6c9a369a751f
     m_ActionName: Player/Move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78709b8b-dd11-46b9-ab6d-28b5420c468c
+    m_ActionName: Player/Freeze[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
