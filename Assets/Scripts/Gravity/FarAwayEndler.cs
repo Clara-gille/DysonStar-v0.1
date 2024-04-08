@@ -14,9 +14,11 @@ public class FarAwayEndlerManager : MonoBehaviour {
     void Awake () {
         ship = FindObjectOfType<SpaceShipController> ();
         var bodies = FindObjectsOfType<CelestialBody> ();
+        var spawnPoint = FindObjectOfType<SpawnPointThreeD> ();
 
         physicsObjects = new List<Transform> ();
         physicsObjects.Add (ship.transform);
+        physicsObjects.Add (spawnPoint.transform);
         foreach (var c in bodies) {
             physicsObjects.Add (c.transform);
         }

@@ -11,6 +11,7 @@ public class ShipHUD : MonoBehaviour {
     public float minAimAngle = 30;
     public Image centreDot;
     public TMPro.TMP_Text planetInfo;
+    public TMP_Text matchHint;
 
     [Header ("Velocity indicators")]
     public VelocityIndicator velocityHorizontal;
@@ -19,8 +20,9 @@ public class ShipHUD : MonoBehaviour {
     public Vector2 velocityIndicatorThicknessMinMax;
     public float maxVisDst;
     public float velocityDisplayScale = 1;
+    private const float MaxVelocityDisplay = 100;
 
-    CelestialBody lockedBody;
+    public CelestialBody lockedBody;
     Camera cam;
     Transform camT;
     LockOnUI lockOnUI;
@@ -80,6 +82,7 @@ public class ShipHUD : MonoBehaviour {
         planetInfo.gameObject.SetActive (active);
         velocityHorizontal.SetActive (active);
         velocityVertical.SetActive (active);
+        matchHint.gameObject.SetActive (active);
     }
 
     void DrawPlanetHUD (CelestialBody planet) {
@@ -103,7 +106,7 @@ public class ShipHUD : MonoBehaviour {
         Vector3 relativeVelocity = new Vector3 (vx, vy, vz);
 
         // Planet info
-        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * planet.radius * lockOnUI.lockedRadiusMultiplier + vertical * planet.radius * 0.35f;
+        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * (planet.radius * lockOnUI.lockedRadiusMultiplier * 1.8f) + vertical * (planet.radius * 1.5f) ;
         planetInfo.gameObject.SetActive (PointIsOnScreen (planetInfoWorldPos));
         planetInfo.rectTransform.localPosition = CalculateUIPos (planetInfoWorldPos);
         planetInfo.text = $"{planet.bodyName} \n{FormatDistance(dstToPlanetSurface)} \n{relativeVelocity.z:0}m/s";
@@ -111,7 +114,6 @@ public class ShipHUD : MonoBehaviour {
         // Relative velocity lines
         if (PointIsOnScreen (planet.transform.position)) {
             float arrowHeadSizePercent = dstToPlanetSurface / maxVisDst;
-            //Debug.Log (arrowHeadSizePercent);
             float arrowHeadSize = Mathf.Lerp (velocityIndicatorSizeMinMax.y, velocityIndicatorSizeMinMax.x, arrowHeadSizePercent);
             float indicatorThickness = Mathf.Lerp (velocityIndicatorThicknessMinMax.y, velocityIndicatorThicknessMinMax.x, dstToPlanetSurface / maxVisDst);
             float indicatorAngle = (relativeVelocity.x < 0) ? 180 : 0;
@@ -236,11 +238,22 @@ public class ShipHUD : MonoBehaviour {
             line.rectTransform.localPosition = pos;
             line.rectTransform.sizeDelta = new Vector2 (magnitude, thickness);
             line.material.SetVector ("_Size", line.rectTransform.sizeDelta);
+            
 
             head.rectTransform.localPosition = pos + (Vector2) line.rectTransform.right * magnitude;
             head.rectTransform.eulerAngles = Vector3.forward * angle;
 
             head.rectTransform.localScale = Vector3.one * arrowHeadSize;
+            
+            float opacity = magnitude / MaxVelocityDisplay;
+            // Adjust opacity of the head
+            Color headColor = head.color;
+            headColor.a = opacity; // Convert percentage to fraction
+            head.color = headColor;
+            
+            Color lineColor = line.color;
+            lineColor.a = opacity; // Convert percentage to fraction
+            line.color = lineColor;
         }
 
         public void SetActive (bool active) {

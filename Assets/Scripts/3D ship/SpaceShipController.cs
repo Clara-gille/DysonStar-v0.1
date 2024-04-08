@@ -13,10 +13,12 @@ public class SpaceShipController : MonoBehaviour
     private SpacePlayerInputs _inputs;
     
     [Header("Sensitivities and speeds")]
-    [SerializeField] float camSensitivity = 0.01f;
-    [SerializeField] float moveSpeed = 3f;
-    [SerializeField] float tiltSpeed = 10f;
-    [SerializeField] float upDownMutliplier = 10;
+    [SerializeField]
+    private float camSensitivity = 0.01f;
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float tiltSpeed = 10f;
+    [SerializeField] private float matchingSpeed = 10;
+    [SerializeField] private float forwardMultiplier = 10;
     
     // Inputs 
     private Vector2 _movementInput;
@@ -24,8 +26,11 @@ public class SpaceShipController : MonoBehaviour
     private float _xRotationInput = 0;
     private float _yRotationInput = 0;
     private float _zRotationInput = 0;
+    private bool _matching;
 
-    void Awake()
+    private ShipHUD _hud;
+
+    private void Awake()
     {
         _inputs = new SpacePlayerInputs();
     }
@@ -39,11 +44,12 @@ public class SpaceShipController : MonoBehaviour
     {
         _inputs.Disable();
     }
-    
-    void Start()
+
+    private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _cam = Camera.main;
+        _hud = FindObjectOfType<ShipHUD>();
 
         //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -54,12 +60,9 @@ public class SpaceShipController : MonoBehaviour
     {
         GetRotateInputs();
         GetMovementInputs();
-        
-        //Display ship forward speed
-        Debug.Log(_rb.velocity.magnitude);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         //update player movement and camera
         ShipMove();
@@ -72,18 +75,20 @@ public class SpaceShipController : MonoBehaviour
         // Calculate horizontal movement
         Vector3 horizontal = transform.right * _movementInput.x;
         // Calculate forward/backward movement
-        Vector3 vertical = transform.forward * _movementInput.y;
+        Vector3 vertical = transform.forward * (_movementInput.y * forwardMultiplier);
         // Calculate up/down movement
-        Vector3 upDown = transform.up * (_upDownInput * upDownMutliplier);
+        Vector3 upDown = transform.up * _upDownInput;
         
         // Combine horizontal and vertical movement
-        Vector3 movement = (horizontal + vertical + upDown).normalized * moveSpeed;
+        Vector3 movement = (horizontal + vertical + upDown) * moveSpeed;
 
         // Apply the movement force
         _rb.AddForce(movement, ForceMode.Force);
         
-        //Update camera FOV based on speed
-        // _cam.fieldOfView = _baseFOV + _rb.velocity.magnitude * 0.01f;
+        if (_matching)
+        {
+            MatchSpeed();
+        }
         
         
     }
@@ -106,5 +111,21 @@ public class SpaceShipController : MonoBehaviour
     {
         _movementInput = _inputs.Player.Move.ReadValue<Vector2>();
         _upDownInput = _inputs.Player.UpDown.ReadValue<float>();
+        _matching = _inputs.Player.Match.IsInProgress();
+    }
+    
+    private void MatchSpeed()
+    {
+        if (_hud.lockedBody != null)
+        {
+            // Calculate the difference in velocity
+            Vector3 velocityDifference = _hud.lockedBody.velocity - _rb.velocity;
+        
+            // Calculate the acceleration needed to match the speed
+            Vector3 acceleration = velocityDifference * matchingSpeed / Time.fixedDeltaTime;
+        
+            // Apply the acceleration as force
+            _rb.AddForce(acceleration, ForceMode.Force);
+        }
     }
 }
