@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1354,6 +1354,11 @@ MonoBehaviour:
   surfaceGravity: 0.001
   initialVelocity: {x: 0, y: 0.64, z: 0}
   bodyName: Green
+--- !u!1 &1036094240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+  m_PrefabInstance: {fileID: 417168971}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1073847530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1507,51 @@ Transform:
   - {fileID: 1595999887}
   m_Father: {fileID: 1314747994}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1170337869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170337871}
+  - component: {fileID: 1170337870}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1170337870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170337869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ca2a6f7d6995d47b6b1d880bdc7774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceShip: {fileID: 1036094240}
+--- !u!4 &1170337871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170337869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -148, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1287741054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1564,7 @@ GameObject:
   - component: {fileID: 1287741057}
   - component: {fileID: 1287741056}
   - component: {fileID: 1287741058}
+  - component: {fileID: 1287741059}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -1686,6 +1737,21 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1287741059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287741054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc5cedb50f34ef4489c7ca5a5e4c573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  landingDistance: 400
+  destroyDistance: 200
+  spaceShip: {fileID: 1036094240}
 --- !u!1 &1303201536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,8 +3101,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 374533680}
-  - {fileID: 300430635}
+  - {fileID: 1170337871}
   - {fileID: 417168971}
   - {fileID: 481703248}
   - {fileID: 1114518004}
   - {fileID: 1073847532}
+  - {fileID: 300430635}
