@@ -43,6 +43,7 @@ public class ShipDetector : MonoBehaviour
     
     private void OnDrawGizmos()
     {
+        //Draw ranges in editor
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, destroyDistance);
         Gizmos.color = Color.green;
@@ -51,6 +52,11 @@ public class ShipDetector : MonoBehaviour
     
     private void RespawnShip()
     {
+        //Reset position
         spaceShip.transform.position = _spawnPointThreeD.transform.position;
+        //Reset velocity
+        spaceShip.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //Reset angular velocity
+        spaceShip.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 }
