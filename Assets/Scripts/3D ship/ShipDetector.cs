@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,8 +12,33 @@ public class ShipDetector : MonoBehaviour
     [SerializeField] private bool landable = true;
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private TMP_Text landingText;
+    [SerializeField] private TMP_Text destroyText;
+    
     private SpawnPointThreeD _spawnPointThreeD;
-    private bool _wasClose = false;
+    private bool _isClose = false;
+    
+    private SpacePlayerInputs _inputs;
+    
+    private void Awake()
+    {
+        _inputs = new SpacePlayerInputs();
+        _inputs.Player.Land.performed += _ => Land();
+    }
+
+    private void OnDestroy()
+    {
+        _inputs.Player.Land.performed -= _ => Land();
+    }
+    
+    private void OnEnable()
+    {
+        _inputs.Enable();
+    }
+    
+    private void OnDisable()
+    {
+        _inputs.Disable();
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -30,14 +56,14 @@ public class ShipDetector : MonoBehaviour
         else if ((spaceShip.transform.position - transform.position).magnitude < landingDistance)
         {
             landingText.text = landable ? "Press [Enter] to land on " + name : "You can't land on " + name;
-            _wasClose = true;
+            _isClose = true;
             landingText.gameObject.SetActive(true);
             
         }
-        else if (_wasClose)
+        else if (_isClose)
         {
             landingText.gameObject.SetActive(false);
-            _wasClose = false;
+            _isClose = false;
         }
     }
     
@@ -58,5 +84,22 @@ public class ShipDetector : MonoBehaviour
         spaceShip.GetComponent<Rigidbody>().velocity = Vector3.zero;
         //Reset angular velocity
         spaceShip.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        destroyText.text = "You flew too close to " + name + " and were destroyed!";
+        destroyText.gameObject.SetActive(true);
+        StartCoroutine(HideText());
+    }
+    
+    private IEnumerator HideText()
+    {
+        yield return new WaitForSeconds(3);
+        destroyText.gameObject.SetActive(false);
+    }
+    
+    private void Land()
+    {
+        if (landable && _isClose)
+        {
+            Debug.Log("Landed on " + name);
+        }
     }
 }
