@@ -377,7 +377,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173822851}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcc5cedb50f34ef4489c7ca5a5e4c573, type: 3}
   m_Name: 
@@ -2399,7 +2399,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287741054}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcc5cedb50f34ef4489c7ca5a5e4c573, type: 3}
   m_Name: 
@@ -2748,7 +2748,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9888646, g: 1, b: 0.84313726, a: 1}
+  m_Color: {r: 1, g: 0.98348063, b: 0.75, a: 1}
   m_Intensity: 1
   m_Range: 40000
   m_SpotAngle: 30
@@ -2782,7 +2782,7 @@ Light:
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_Flare: {fileID: 0}
+  m_Flare: {fileID: 12100000, guid: d658006f573c00e40a9bc0095afa70fe, type: 2}
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4012,9 +4012,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.8942176, b: 0.21226418, a: 1}
+  m_Color: {r: 1, g: 0.7947302, b: 0.2117647, a: 1}
   m_Intensity: 1
-  m_Range: 500
+  m_Range: 420
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
