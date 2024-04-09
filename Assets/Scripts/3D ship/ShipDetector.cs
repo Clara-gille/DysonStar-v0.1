@@ -69,11 +69,11 @@ public class ShipDetector : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        //Draw ranges in editor
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, destroyDistance);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, landingDistance);
+        // //Draw ranges in editor
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position, destroyDistance);
+        // Gizmos.color = Color.green;
+        // Gizmos.DrawWireSphere(transform.position, landingDistance);
     }
     
     private void RespawnShip()
