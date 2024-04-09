@@ -1428,7 +1428,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1269048715}
@@ -2018,8 +2018,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 538272439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2072,7 +2072,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1269048714}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 26448e8d67f974f44890a9da78594668, type: 3}
 --- !u!1 &1280994695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,7 +2828,7 @@ Transform:
   m_GameObject: {fileID: 1523325237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 948, y: 0, z: 3}
+  m_LocalPosition: {x: 1003, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2847,9 +2847,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc5cedb50f34ef4489c7ca5a5e4c573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landingDistance: 100
-  destroyDistance: 35
-  landable: 0
+  landingDistance: 200
+  destroyDistance: 90
+  landable: 1
   spaceShip: {fileID: 1036094240}
   landingText: {fileID: 1280994697}
   destroyText: {fileID: 1693204479}
@@ -3006,9 +3006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad812f2dbdb4da646b30567d3e1207d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 30
+  radius: 40
   surfaceGravity: 0
-  initialVelocity: {x: 0, y: 0, z: -2.11}
+  initialVelocity: {x: 0, y: 0, z: -1.44}
   bodyName: Dark
 --- !u!1 &1527898846
 GameObject:
