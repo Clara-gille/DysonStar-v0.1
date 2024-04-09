@@ -13,6 +13,7 @@ public class ShipDetector : MonoBehaviour
     [SerializeField] private GameObject spaceShip;
     [SerializeField] private TMP_Text landingText;
     [SerializeField] private TMP_Text destroyText;
+    [SerializeField] private bool drawGizmos = false;
     
     private SpawnPointThreeD _spawnPointThreeD;
     private bool _isClose = false;
@@ -69,11 +70,13 @@ public class ShipDetector : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        // //Draw ranges in editor
-        // Gizmos.color = Color.red;
-        // Gizmos.DrawWireSphere(transform.position, destroyDistance);
-        // Gizmos.color = Color.green;
-        // Gizmos.DrawWireSphere(transform.position, landingDistance);
+        if (drawGizmos)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, destroyDistance);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, landingDistance);
+        }
     }
     
     private void RespawnShip()
