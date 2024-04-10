@@ -37,6 +37,8 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] private GameObject[] down;
     [SerializeField] private GameObject[] left;
     [SerializeField] private GameObject[] right;
+    
+    [SerializeField] private ParticleSystem explosion;
 
     private void Awake()
     {
@@ -169,5 +171,10 @@ public class SpaceShipController : MonoBehaviour
             // Apply the acceleration as force
             _rb.AddForce(acceleration, ForceMode.Force);
         }
+    }
+    
+    public void Explode()
+    {
+        explosion.Play();
     }
 }
