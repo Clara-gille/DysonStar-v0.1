@@ -27,8 +27,18 @@ public class SpaceShipController : MonoBehaviour
     private float _yRotationInput = 0;
     private float _zRotationInput = 0;
     private bool _matching;
-
+    
     private ShipHUD _hud;
+    
+    [Header("Thrusters")]
+    [SerializeField] private GameObject[] forward;
+    [SerializeField] private GameObject[] backward;
+    [SerializeField] private GameObject[] up;
+    [SerializeField] private GameObject[] down;
+    [SerializeField] private GameObject[] left;
+    [SerializeField] private GameObject[] right;
+    
+    [SerializeField] private ParticleSystem explosion;
 
     private void Awake()
     {
@@ -67,6 +77,7 @@ public class SpaceShipController : MonoBehaviour
         //update player movement and camera
         ShipMove();
         ShipRotate();
+        ManageThrusters();
     }
 
     //player body movement and jump
@@ -99,6 +110,39 @@ public class SpaceShipController : MonoBehaviour
         Vector3 torque = new Vector3(-_yRotationInput, _xRotationInput, _zRotationInput * tiltSpeed);
         _rb.AddRelativeTorque(torque, ForceMode.Force);
     }
+
+    private void ManageThrusters()
+    {
+        foreach (GameObject thruster in forward)
+        {
+            thruster.SetActive(_movementInput.y > 0);
+        }
+        
+        foreach (GameObject thruster in backward)
+        {
+            thruster.SetActive(_movementInput.y < 0);
+        }
+        
+        foreach (GameObject thruster in up)
+        {
+            thruster.SetActive(_upDownInput > 0);
+        }
+        
+        foreach (GameObject thruster in down)
+        {
+            thruster.SetActive(_upDownInput < 0);
+        }
+        
+        foreach (GameObject thruster in left)
+        {
+            thruster.SetActive(_movementInput.x < 0);
+        }
+        
+        foreach (GameObject thruster in right)
+        {
+            thruster.SetActive(_movementInput.x > 0);
+        }
+    }
     
     private void GetRotateInputs()
     {
@@ -126,6 +170,44 @@ public class SpaceShipController : MonoBehaviour
         
             // Apply the acceleration as force
             _rb.AddForce(acceleration, ForceMode.Force);
+        }
+    }
+    
+    public void Explode()
+    {
+        explosion.Play();
+    }
+
+    public void ToggleThruster(bool state)
+    {
+        foreach (GameObject thruster in forward)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in backward)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in up)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in down)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in left)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in right)
+        {
+            thruster.SetActive(state);
         }
     }
 }
