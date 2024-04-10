@@ -33,6 +33,10 @@ public class SpaceShipController : MonoBehaviour
     [Header("Thrusters")]
     [SerializeField] private GameObject[] forward;
     [SerializeField] private GameObject[] backward;
+    [SerializeField] private GameObject[] up;
+    [SerializeField] private GameObject[] down;
+    [SerializeField] private GameObject[] left;
+    [SerializeField] private GameObject[] right;
 
     private void Awake()
     {
@@ -115,6 +119,26 @@ public class SpaceShipController : MonoBehaviour
         foreach (GameObject thruster in backward)
         {
             thruster.SetActive(_movementInput.y < 0);
+        }
+        
+        foreach (GameObject thruster in up)
+        {
+            thruster.SetActive(_upDownInput > 0);
+        }
+        
+        foreach (GameObject thruster in down)
+        {
+            thruster.SetActive(_upDownInput < 0);
+        }
+        
+        foreach (GameObject thruster in left)
+        {
+            thruster.SetActive(_movementInput.x < 0);
+        }
+        
+        foreach (GameObject thruster in right)
+        {
+            thruster.SetActive(_movementInput.x > 0);
         }
     }
     
