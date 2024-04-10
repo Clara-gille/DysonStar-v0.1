@@ -833,6 +833,10 @@ PrefabInstance:
       propertyPath: velocityHorizontal.line
       value: 
       objectReference: {fileID: 456704271}
+    - target: {fileID: 5810310798262581251, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Name
       value: SpaceShip

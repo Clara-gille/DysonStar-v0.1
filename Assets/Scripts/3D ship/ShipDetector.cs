@@ -52,7 +52,7 @@ public class ShipDetector : MonoBehaviour
     {
         if ((spaceShip.transform.position - transform.position).magnitude < destroyDistance)
         {
-            RespawnShip();
+            StartCoroutine(RespawnShip());
         }
         else if ((spaceShip.transform.position - transform.position).magnitude < landingDistance)
         {
@@ -79,22 +79,35 @@ public class ShipDetector : MonoBehaviour
         }
     }
     
-    private void RespawnShip()
+    private IEnumerator RespawnShip()
     {
-        //Reset position
-        spaceShip.transform.position = _spawnPointThreeD.transform.position;
+        //trigger explosion using method
+        spaceShip.GetComponent<SpaceShipController>().Explode();
+        //Hide ship mesh
+        spaceShip.GetComponent<MeshRenderer>().enabled = false;
+        //Disable thrusters
+        spaceShip.GetComponent<SpaceShipController>().ToggleThruster(false);
         //Reset velocity
         spaceShip.GetComponent<Rigidbody>().velocity = Vector3.zero;
         //Reset angular velocity
         spaceShip.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         destroyText.text = "You flew too close to " + name + " and were destroyed!";
         destroyText.gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(3);
+        
+        //Reset position
+        spaceShip.transform.position = _spawnPointThreeD.transform.position;
+        //Show ship mesh
+        spaceShip.GetComponent<MeshRenderer>().enabled = true;
+        //Enable thrusters
+        spaceShip.GetComponent<SpaceShipController>().ToggleThruster(true);
         StartCoroutine(HideText());
     }
     
     private IEnumerator HideText()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         destroyText.gameObject.SetActive(false);
     }
     

@@ -177,4 +177,37 @@ public class SpaceShipController : MonoBehaviour
     {
         explosion.Play();
     }
+
+    public void ToggleThruster(bool state)
+    {
+        foreach (GameObject thruster in forward)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in backward)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in up)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in down)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in left)
+        {
+            thruster.SetActive(state);
+        }
+        
+        foreach (GameObject thruster in right)
+        {
+            thruster.SetActive(state);
+        }
+    }
 }
