@@ -27,8 +27,12 @@ public class SpaceShipController : MonoBehaviour
     private float _yRotationInput = 0;
     private float _zRotationInput = 0;
     private bool _matching;
-
+    
     private ShipHUD _hud;
+    
+    [Header("Thrusters")]
+    [SerializeField] private GameObject[] forward;
+    [SerializeField] private GameObject[] backward;
 
     private void Awake()
     {
@@ -67,6 +71,7 @@ public class SpaceShipController : MonoBehaviour
         //update player movement and camera
         ShipMove();
         ShipRotate();
+        ManageThrusters();
     }
 
     //player body movement and jump
@@ -98,6 +103,19 @@ public class SpaceShipController : MonoBehaviour
     {
         Vector3 torque = new Vector3(-_yRotationInput, _xRotationInput, _zRotationInput * tiltSpeed);
         _rb.AddRelativeTorque(torque, ForceMode.Force);
+    }
+
+    private void ManageThrusters()
+    {
+        foreach (GameObject thruster in forward)
+        {
+            thruster.SetActive(_movementInput.y > 0);
+        }
+        
+        foreach (GameObject thruster in backward)
+        {
+            thruster.SetActive(_movementInput.y < 0);
+        }
     }
     
     private void GetRotateInputs()
