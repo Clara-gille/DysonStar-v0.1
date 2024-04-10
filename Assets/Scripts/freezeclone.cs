@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 public class FreezeClone : MonoBehaviour
 {
     // Reference to the CloneMovement script attached to the clone GameObject
-    private _PlayerMouvement cloneMovement;
+    private PlayerMouvement cloneMovement;
 
     // Start is called before the first frame update
     void Start()
     {
         // Get the CloneMovement component attached to the clone GameObject
-        cloneMovement = GetComponent<_PlayerMouvement>();
+        cloneMovement = GetComponent<PlayerMouvement>();
     }
 
     // Update is called once per frame

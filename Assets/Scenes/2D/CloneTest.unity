@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b4ab4c886e5fd4d932a5859dc55f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clonePlayer: {fileID: 3584061085783972108, guid: 8c22859288b95c44c8eefaa273f839c8, type: 3}
+  clonePlayer: {fileID: 3584061085783972108, guid: 59506f6868eb7884bb4018a78706d9c7, type: 3}
 --- !u!212 &1188987929
 SpriteRenderer:
   m_ObjectHideFlags: 0
