@@ -1552,7 +1552,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.7834466}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7012681238926129362}
@@ -1641,7 +1641,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 100
   m_Drag: 0
-  m_AngularDrag: 0.1
+  m_AngularDrag: 0.001
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1671,9 +1671,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
-  camSensitivity: 0.01
-  moveSpeed: 25
-  tiltSpeed: 0.5
+  camSensitivity: 0.0025
+  moveSpeed: 50
+  tiltSpeed: 0.1
+  matchingSpeed: 0.8
+  forwardMultiplier: 8
 --- !u!114 &7288797909765370176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,10 +1692,10 @@ MonoBehaviour:
   mat: {fileID: 2100000, guid: 8d80d9cd75dec594c87e1fa9b4214099, type: 2}
   thickness: 2.5
   lockedRadiusMultiplier: 1.3
-  lockedAngle: 35
-  lockedColor: {r: 0.5803922, g: 0.8156863, b: 1, a: 1}
-  surfaceDstFadeOutRange: {x: 250, y: 80}
-  aimedRadiusMutliplier: 1.7
+  lockedAngle: 45
+  lockedColor: {r: 1, g: 0.15225314, b: 0, a: 1}
+  surfaceDstFadeOutRange: {x: 25000, y: 800}
+  aimedRadiusMutliplier: 1.8
   aimedAngle: 10
   aimedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &4390114443714512601
@@ -1708,20 +1710,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aba4081314e8ea41b14c45b86965e69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dotSize: 0.1
+  dotSize: 0.2
   minAimAngle: 5
   centreDot: {fileID: 0}
   planetInfo: {fileID: 0}
+  matchHint: {fileID: 0}
   velocityHorizontal:
     line: {fileID: 0}
     head: {fileID: 0}
   velocityVertical:
     line: {fileID: 0}
     head: {fileID: 0}
-  velocityIndicatorSizeMinMax: {x: 0.2, y: 0.5}
+  velocityIndicatorSizeMinMax: {x: 0.2, y: 1.5}
   velocityIndicatorThicknessMinMax: {x: 4, y: 10}
-  maxVisDst: 100000
-  velocityDisplayScale: 10
+  maxVisDst: 2000
+  velocityDisplayScale: 200
+  lockedBody: {fileID: 0}
 --- !u!1 &6210674403336310712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,13 +2563,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8838597049799431262}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.166988, y: -0.00000011920929, z: -0.0000004172325, w: 0.985959}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.4, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 277191886435753598}
-  m_LocalEulerAnglesHint: {x: 19.225, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7783430218374601713
 Camera:
   m_ObjectHideFlags: 0
