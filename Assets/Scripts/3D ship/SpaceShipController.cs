@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class SpaceShipController : MonoBehaviour
 {
     public Rigidbody _rb;
-    private Camera _cam;
     private readonly float _baseFOV = 75f;
     
     // Input manager
@@ -43,8 +44,14 @@ public class SpaceShipController : MonoBehaviour
     private void Awake()
     {
         _inputs = new SpacePlayerInputs();
+        _inputs.Player.Inside.performed += _ => GoInside();
     }
-    
+
+    private void OnDestroy()
+    {
+        _inputs.Player.Inside.performed -= _ => GoInside();
+    }
+
     private void OnEnable()
     {
         _inputs.Enable();
@@ -58,7 +65,6 @@ public class SpaceShipController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _cam = Camera.main;
         _hud = FindObjectOfType<ShipHUD>();
 
         //hide and lock cursor
@@ -177,6 +183,12 @@ public class SpaceShipController : MonoBehaviour
     {
         explosion.Play();
     }
+    
+    public void GoInside(){
+        //Switch to ship interior scene
+        SceneManager.LoadScene("Ship WIP");
+    }
+        
 
     public void ToggleThruster(bool state)
     {

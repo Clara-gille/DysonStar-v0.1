@@ -98,6 +98,15 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inside"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a6ddd54-a702-485d-87b6-ad1ad3d39dd2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -375,6 +384,17 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Land"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""963d9a87-8280-4810-ad61-21f3b9cff27e"",
+                    ""path"": ""<Keyboard>/semicolon"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inside"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -452,6 +472,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Tilt = m_Player.FindAction("Tilt", throwIfNotFound: true);
         m_Player_Match = m_Player.FindAction("Match", throwIfNotFound: true);
         m_Player_Land = m_Player.FindAction("Land", throwIfNotFound: true);
+        m_Player_Inside = m_Player.FindAction("Inside", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -521,6 +542,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Tilt;
     private readonly InputAction m_Player_Match;
     private readonly InputAction m_Player_Land;
+    private readonly InputAction m_Player_Inside;
     public struct PlayerActions
     {
         private @SpacePlayerInputs m_Wrapper;
@@ -533,6 +555,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Tilt => m_Wrapper.m_Player_Tilt;
         public InputAction @Match => m_Wrapper.m_Player_Match;
         public InputAction @Land => m_Wrapper.m_Player_Land;
+        public InputAction @Inside => m_Wrapper.m_Player_Inside;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -566,6 +589,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Land.started += instance.OnLand;
             @Land.performed += instance.OnLand;
             @Land.canceled += instance.OnLand;
+            @Inside.started += instance.OnInside;
+            @Inside.performed += instance.OnInside;
+            @Inside.canceled += instance.OnInside;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -594,6 +620,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Land.started -= instance.OnLand;
             @Land.performed -= instance.OnLand;
             @Land.canceled -= instance.OnLand;
+            @Inside.started -= instance.OnInside;
+            @Inside.performed -= instance.OnInside;
+            @Inside.canceled -= instance.OnInside;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -666,5 +695,6 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         void OnTilt(InputAction.CallbackContext context);
         void OnMatch(InputAction.CallbackContext context);
         void OnLand(InputAction.CallbackContext context);
+        void OnInside(InputAction.CallbackContext context);
     }
 }
