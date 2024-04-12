@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1244835719905563669}
   - component: {fileID: 2504200266347357311}
   m_Layer: 0
-  m_Name: Caracter
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3904, y: 1.77, z: 0}
-  m_LocalScale: {x: 5.24, y: 5, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3607675870357975415}
   m_Father: {fileID: 0}
@@ -304,16 +304,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8793788288699020399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae97b2201942a9549a53f81bf9ec9949, type: 3}
+  m_Script: {fileID: 11500000, guid: 86d1d8474ab288a409642f354cb9e526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5039960151617748811}
+  rb: {fileID: 0}
   groundCheck: {fileID: 3607675870357975415}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1
   speed: 8
-  jumpForce: 18
+  jumpForce: 16
 --- !u!114 &1244835719905563669
 MonoBehaviour:
   m_ObjectHideFlags: 0
