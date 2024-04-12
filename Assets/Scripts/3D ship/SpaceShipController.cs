@@ -40,6 +40,7 @@ public class SpaceShipController : MonoBehaviour
     
     [Header("Sounds")]
     [SerializeField] private AudioSource thrusterSound;
+    [SerializeField] private AudioSource explosionSound;
     
     [SerializeField] private ParticleSystem explosion;
 
@@ -212,6 +213,7 @@ public class SpaceShipController : MonoBehaviour
     public void Explode()
     {
         explosion.Play();
+        explosionSound.Play();
     }
     
     public void GoInside(){
