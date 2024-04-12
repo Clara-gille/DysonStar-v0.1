@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3D/Menu.unity
     guid: 3b96a22b55ae68c4ca6630739d74f9b3
+  - enabled: 1
+    path: Assets/Scenes/3D/Orbit tests.unity
+    guid: 88ac47c268fada742abe22e681671335
   m_configObjects: {}

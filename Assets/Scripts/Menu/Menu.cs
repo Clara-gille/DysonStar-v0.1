@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         // Load the game scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Orbit Test");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
