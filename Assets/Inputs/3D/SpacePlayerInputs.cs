@@ -107,6 +107,15 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Leave"",
+                    ""type"": ""Button"",
+                    ""id"": ""7838074e-699b-4a37-a893-8ebcb7ed5462"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -395,6 +404,17 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Inside"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f4506567-ca2a-45da-849f-523fabe54a51"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Leave"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -473,6 +493,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Match = m_Player.FindAction("Match", throwIfNotFound: true);
         m_Player_Land = m_Player.FindAction("Land", throwIfNotFound: true);
         m_Player_Inside = m_Player.FindAction("Inside", throwIfNotFound: true);
+        m_Player_Leave = m_Player.FindAction("Leave", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -543,6 +564,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Match;
     private readonly InputAction m_Player_Land;
     private readonly InputAction m_Player_Inside;
+    private readonly InputAction m_Player_Leave;
     public struct PlayerActions
     {
         private @SpacePlayerInputs m_Wrapper;
@@ -556,6 +578,7 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Match => m_Wrapper.m_Player_Match;
         public InputAction @Land => m_Wrapper.m_Player_Land;
         public InputAction @Inside => m_Wrapper.m_Player_Inside;
+        public InputAction @Leave => m_Wrapper.m_Player_Leave;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -592,6 +615,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Inside.started += instance.OnInside;
             @Inside.performed += instance.OnInside;
             @Inside.canceled += instance.OnInside;
+            @Leave.started += instance.OnLeave;
+            @Leave.performed += instance.OnLeave;
+            @Leave.canceled += instance.OnLeave;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -623,6 +649,9 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
             @Inside.started -= instance.OnInside;
             @Inside.performed -= instance.OnInside;
             @Inside.canceled -= instance.OnInside;
+            @Leave.started -= instance.OnLeave;
+            @Leave.performed -= instance.OnLeave;
+            @Leave.canceled -= instance.OnLeave;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -696,5 +725,6 @@ public partial class @SpacePlayerInputs: IInputActionCollection2, IDisposable
         void OnMatch(InputAction.CallbackContext context);
         void OnLand(InputAction.CallbackContext context);
         void OnInside(InputAction.CallbackContext context);
+        void OnLeave(InputAction.CallbackContext context);
     }
 }

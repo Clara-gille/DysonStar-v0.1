@@ -45,11 +45,13 @@ public class SpaceShipController : MonoBehaviour
     {
         _inputs = new SpacePlayerInputs();
         _inputs.Player.Inside.performed += _ => GoInside();
+        _inputs.Player.Leave.performed += _ =>  BakcToMenu();
     }
 
     private void OnDestroy()
     {
         _inputs.Player.Inside.performed -= _ => GoInside();
+        _inputs.Player.Leave.performed -= _ =>  BakcToMenu();
     }
 
     private void OnEnable()
@@ -188,7 +190,11 @@ public class SpaceShipController : MonoBehaviour
         //Switch to ship interior scene
         SceneManager.LoadScene("Ship WIP");
     }
-        
+    
+    public void BakcToMenu(){
+        //Switch to main menu
+        SceneManager.LoadScene("Menu");
+    }
 
     public void ToggleThruster(bool state)
     {
