@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
 public class SpaceShipController : MonoBehaviour
 {
     public Rigidbody _rb;
-    private readonly float _baseFOV = 75f;
     
     // Input manager
     private SpacePlayerInputs _inputs;
@@ -38,6 +37,9 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] private GameObject[] down;
     [SerializeField] private GameObject[] left;
     [SerializeField] private GameObject[] right;
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioSource thrusterSound;
     
     [SerializeField] private ParticleSystem explosion;
 
@@ -72,6 +74,8 @@ public class SpaceShipController : MonoBehaviour
         //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        thrusterSound.volume = 0.25f;
     }
 
     private void Update()
@@ -121,6 +125,11 @@ public class SpaceShipController : MonoBehaviour
 
     private void ManageThrusters()
     {
+        if (_matching)
+        {
+            return;
+        }
+        
         foreach (GameObject thruster in forward)
         {
             thruster.SetActive(_movementInput.y > 0);
@@ -150,6 +159,10 @@ public class SpaceShipController : MonoBehaviour
         {
             thruster.SetActive(_movementInput.x > 0);
         }
+        //if any thruster is active play sound
+        thrusterSound.pitch = (Mathf.Abs(_movementInput.y) + Mathf.Abs(_movementInput.x) + Mathf.Abs(_upDownInput)) / 3f;
+        
+        thrusterSound.enabled = forward[0].activeSelf || backward[0].activeSelf || up[0].activeSelf || down[0].activeSelf || left[0].activeSelf || right[0].activeSelf;
     }
     
     private void GetRotateInputs()
@@ -178,6 +191,21 @@ public class SpaceShipController : MonoBehaviour
         
             // Apply the acceleration as force
             _rb.AddForce(acceleration, ForceMode.Force);
+            
+            // Activate the thrusters left and right
+         
+            foreach (GameObject thruster in left)
+            {
+                thruster.SetActive(true);
+            }
+            
+            foreach (GameObject thruster in right)
+            {
+                thruster.SetActive(true);
+            }
+            
+            thrusterSound.pitch = 0.5f;
+            thrusterSound.enabled = true;
         }
     }
     
