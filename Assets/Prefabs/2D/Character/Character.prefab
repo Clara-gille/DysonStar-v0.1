@@ -34,8 +34,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3904, y: 1.77, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 0}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 9, y: 10, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3607675870357975415}
   m_Father: {fileID: 0}
@@ -290,6 +290,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b2a0503d-bda4-458f-bfa5-f306d0707343
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ffd40e8-0fff-4fa8-8ca0-25e8b5394964
+    m_ActionName: Player/Freeze[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -311,9 +315,9 @@ MonoBehaviour:
   groundCheck: {fileID: 3607675870357975415}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 256
   speed: 8
-  jumpForce: 16
+  jumpForce: 24
 --- !u!114 &1244835719905563669
 MonoBehaviour:
   m_ObjectHideFlags: 0
