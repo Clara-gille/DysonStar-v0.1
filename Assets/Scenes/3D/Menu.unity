@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 173822852}
   - component: {fileID: 173822856}
   - component: {fileID: 173822855}
+  - component: {fileID: 173822857}
   m_Layer: 0
   m_Name: FakeStar
   m_TagString: Untagged
@@ -277,6 +278,22 @@ MonoBehaviour:
   surfaceGravity: 0.1
   initialVelocity: {x: 0, y: 0, z: 1.5}
   bodyName: FakeStar
+--- !u!114 &173822857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173822851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f6659aaaa3b694686369b068bbe663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPrefab: {fileID: 981733020931826984, guid: 6f949fa39d341ff449babb4c345b79bf, type: 3}
+  radius: 175
+  slices: 12
+  stacks: 15
 --- !u!1 &258637531
 GameObject:
   m_ObjectHideFlags: 0
