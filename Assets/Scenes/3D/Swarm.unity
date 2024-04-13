@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f6659aaaa3b694686369b068bbe663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelPrefab: {fileID: 8976249881799913106, guid: 51793d9c1eb6bdc45a876bde0f455f08, type: 3}
+  panelPrefab: {fileID: 981733020931826984, guid: 6f949fa39d341ff449babb4c345b79bf, type: 3}
   radius: 100
   slices: 10
   stacks: 10

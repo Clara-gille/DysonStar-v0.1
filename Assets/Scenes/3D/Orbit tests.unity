@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57f6659aaaa3b694686369b068bbe663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelPrefab: {fileID: 8976249881799913106, guid: 51793d9c1eb6bdc45a876bde0f455f08, type: 3}
+  panelPrefab: {fileID: 981733020931826984, guid: 6f949fa39d341ff449babb4c345b79bf, type: 3}
   radius: 175
   slices: 12
   stacks: 15
@@ -631,10 +631,6 @@ PrefabInstance:
       propertyPath: velocityHorizontal.line
       value: 
       objectReference: {fileID: 456704271}
-    - target: {fileID: 5810310798254101633, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5914041210550749326, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_Name
       value: SpaceShip
