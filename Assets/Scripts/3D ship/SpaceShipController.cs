@@ -41,6 +41,7 @@ public class SpaceShipController : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioSource thrusterSound;
     [SerializeField] private AudioSource explosionSound;
+    [SerializeField] private AudioSource matchingSound;
     
     [SerializeField] private ParticleSystem explosion;
 
@@ -83,6 +84,8 @@ public class SpaceShipController : MonoBehaviour
     {
         GetRotateInputs();
         GetMovementInputs();
+        
+        matchingSound.enabled = _matching && _hud.lockedBody != null;
     }
 
     private void FixedUpdate()
