@@ -10,7 +10,7 @@ public class ShipHUD : MonoBehaviour {
     public float dotSize = 1;
     public float minAimAngle = 30;
     public Image centreDot;
-    public TMPro.TMP_Text planetInfo;
+    public TMP_Text planetInfo;
     public TMP_Text matchHint;
 
     [Header ("Velocity indicators")]
@@ -142,8 +142,7 @@ public class ShipHUD : MonoBehaviour {
 
         // If aimed directly at any body, return the closest one
         foreach (var body in bodies) {
-            Vector3 intersection;
-            if (RaySphere (body.transform.position, body.radius, viewOrigin, viewForward, out intersection)) {
+            if (RaySphere (body.transform.position, body.radius, viewOrigin, viewForward, out var intersection)) {
                 float sqrDst = (viewOrigin - intersection).sqrMagnitude;
                 if (sqrDst < nearestSqrDst) {
                     nearestSqrDst = sqrDst;
@@ -175,7 +174,7 @@ public class ShipHUD : MonoBehaviour {
 
     bool PointIsOnScreen (Vector3 worldPoint) {
         Vector3 p = cam.WorldToViewportPoint (worldPoint);
-        return p.x >= 0 && p.x <= 1 && p.y >= 0 && p.y <= 1 && p.z > 0;
+        return p.x >= 0 && p is { x: <= 1, y: >= 0 } and { y: <= 1, z: > 0 };
     }
 
     static string FormatDistance (float distance) {
@@ -193,7 +192,6 @@ public class ShipHUD : MonoBehaviour {
             viewportCentre.x = (viewportCentre.x <= 0.5f) ? 1 : 0;
             viewportCentre.y = (viewportCentre.y <= 0.5f) ? 1 : 0;
         }
-        //screenCentre = new Vector2 (screenCentre.x / Screen.width, screenCentre.y / Screen.height);
 
         return new Vector2 ((viewportCentre.x - 0.5f) * referenceWidth, (viewportCentre.y - 0.5f) * referenceHeight);
     }

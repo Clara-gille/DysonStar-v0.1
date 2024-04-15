@@ -14,16 +14,14 @@ public class StarDome : MonoBehaviour {
 
     void Start () {
         cam = Camera.main;
-        if (cam) {
-            float starDst = cam.farClipPlane - radiusMinMax.y;
-            float scale = starDst / calibrationDst;
+        float starDst = cam.farClipPlane - radiusMinMax.y;
+        float scale = starDst / calibrationDst;
 
-            for (int i = 0; i < count; i++) {
-                MeshRenderer star = Instantiate (starPrefab, Random.onUnitSphere * starDst, Quaternion.identity, transform);
-                float t = SmallestRandomValue (6);
-                star.transform.localScale = Vector3.one * Mathf.Lerp (radiusMinMax.x, radiusMinMax.y, t) * scale;
-                star.material.color = Color.Lerp (Color.black, star.material.color, Mathf.Lerp (brightnessMinMax.x, brightnessMinMax.y, t));
-            }
+        for (int i = 0; i < count; i++) {
+            MeshRenderer star = Instantiate (starPrefab, Random.onUnitSphere * starDst, Quaternion.identity, transform);
+            float t = SmallestRandomValue (6);
+            star.transform.localScale = Vector3.one * Mathf.Lerp (radiusMinMax.x, radiusMinMax.y, t) * scale;
+            star.material.color = Color.Lerp (Color.black, star.material.color, Mathf.Lerp (brightnessMinMax.x, brightnessMinMax.y, t));
         }
     }
 
@@ -36,8 +34,6 @@ public class StarDome : MonoBehaviour {
     }
 
     void LateUpdate () {
-        if (cam != null) {
-            transform.position = cam.transform.position;
-        }
+        transform.position = cam.transform.position;
     }
 }

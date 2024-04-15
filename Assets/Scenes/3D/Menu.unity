@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 160115386}
   - component: {fileID: 160115385}
   m_Layer: 0
-  m_Name: Brown
+  m_Name: Honoghr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   radius: 120
   surfaceGravity: 0
   initialVelocity: {x: 0, y: 0.21, z: -0.87}
-  bodyName: Brown
+  bodyName: Honoghr
 --- !u!1 &173822851
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 173822856}
   - component: {fileID: 173822855}
   m_Layer: 0
-  m_Name: FakeStar
+  m_Name: Didymos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   radius: 150
   surfaceGravity: 0.1
   initialVelocity: {x: 0, y: 0, z: 1.5}
-  bodyName: FakeStar
+  bodyName: Didymos
 --- !u!1 &180762218
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 418076831}
   - component: {fileID: 418076830}
   m_Layer: 0
-  m_Name: Blue
+  m_Name: Nubia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,7 +732,7 @@ MonoBehaviour:
   radius: 50
   surfaceGravity: 0
   initialVelocity: {x: 1, y: 0, z: 0}
-  bodyName: Blue
+  bodyName: Nubia
 --- !u!1 &433149129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1900,7 @@ GameObject:
   - component: {fileID: 998748718}
   - component: {fileID: 998748717}
   m_Layer: 0
-  m_Name: Green
+  m_Name: Corellia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1964,7 +1964,7 @@ MonoBehaviour:
   radius: 100
   surfaceGravity: 0
   initialVelocity: {x: 0, y: 0.64, z: 0}
-  bodyName: Green
+  bodyName: Corellia
 --- !u!1 &1007686595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,7 +2599,7 @@ GameObject:
   - component: {fileID: 1287741057}
   - component: {fileID: 1287741056}
   m_Layer: 0
-  m_Name: Star
+  m_Name: Orion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2665,7 +2665,7 @@ MonoBehaviour:
   radius: 150
   surfaceGravity: 0.1
   initialVelocity: {x: 0, y: 0, z: -1.5}
-  bodyName: Star
+  bodyName: Orion
 --- !u!1 &1303201536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,7 +2761,7 @@ GameObject:
   - component: {fileID: 1314747996}
   - component: {fileID: 1314747995}
   m_Layer: 0
-  m_Name: Pink
+  m_Name: Felucia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   radius: 80
   surfaceGravity: 0
   initialVelocity: {x: 0, y: 1.52, z: 0}
-  bodyName: Pink
+  bodyName: Felucia
 --- !u!1 &1365363131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,7 +3345,7 @@ GameObject:
   - component: {fileID: 1523325242}
   - component: {fileID: 1523325241}
   m_Layer: 0
-  m_Name: Dark
+  m_Name: Swarm station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3409,7 +3409,7 @@ MonoBehaviour:
   radius: 40
   surfaceGravity: 0
   initialVelocity: {x: 0, y: 0, z: -1.44}
-  bodyName: Dark
+  bodyName: Swarm station
 --- !u!1 &1572542297
 GameObject:
   m_ObjectHideFlags: 0

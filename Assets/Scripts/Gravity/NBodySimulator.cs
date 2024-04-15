@@ -7,7 +7,6 @@ using UnityEngine;
 public class NBodySimulator : MonoBehaviour
 {
     CelestialBody[] bodies;
-    static NBodySimulator instance;
     [SerializeField] float timeStepRatio = 1f;
     
     void Awake () {
@@ -27,31 +26,15 @@ public class NBodySimulator : MonoBehaviour
         }
     }
     
-    //TODO : use Barnes-Hut algorithm 
-    public static Vector3 CalculateAcceleration (Vector3 point, CelestialBody ignoreBody = null) {
+    private  Vector3 CalculateAcceleration (Vector3 point, CelestialBody ignoreBody = null) {
         Vector3 acceleration = Vector3.zero;
-        foreach (var body in Instance.bodies) {
+        foreach (var body in bodies) {
             if (body != ignoreBody) {
                 float sqrDst = (body.Position - point).sqrMagnitude;
                 Vector3 forceDir = (body.Position - point).normalized;
-                acceleration += forceDir * Constants.GravitationalConstant * body.mass / sqrDst;
+                acceleration += forceDir * (Constants.GravitationalConstant * body.mass) / sqrDst;
             }
         }
         return acceleration;
-    }
-
-    public static CelestialBody[] Bodies {
-        get {
-            return Instance.bodies;
-        }
-    }
-    
-    static NBodySimulator Instance {
-        get {
-            if (instance == null) {
-                instance = FindObjectOfType<NBodySimulator> ();
-            }
-            return instance;
-        }
     }
 }

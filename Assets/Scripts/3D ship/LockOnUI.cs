@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [ExecuteInEditMode]
 public class LockOnUI : MonoBehaviour {
@@ -16,7 +17,7 @@ public class LockOnUI : MonoBehaviour {
     public Vector2 surfaceDstFadeOutRange = new Vector2 (250, 80);
 
     [Header ("Aimed")]
-    public float aimedRadiusMutliplier = 1.3f;
+    public float aimedRadiusMultiplier = 1.3f;
     public float aimedAngle;
     public Color aimedColor;
 
@@ -48,16 +49,15 @@ public class LockOnUI : MonoBehaviour {
         float pixelsPerUnit = (playerCam.WorldToScreenPoint (bodyCentre) - playerCam.WorldToScreenPoint (bodyCentre + playerCam.transform.up)).magnitude;
         float worldThickness = thickness / pixelsPerUnit;
 
-        float innerRadius = body.radius * ((lockedOn) ? lockedRadiusMultiplier : aimedRadiusMutliplier);
+        float innerRadius = body.radius * ((lockedOn) ? lockedRadiusMultiplier : aimedRadiusMultiplier);
         float outerRadius = innerRadius + worldThickness;
 
-        int numIncrements = (int) Mathf.Max (5, numSegments);
+        int numIncrements = Mathf.Max (5, numSegments);
 
         float angle = (lockedOn) ? lockedAngle : aimedAngle;
         float angleIncrement = (angle / (numIncrements - 1f)) * Mathf.Deg2Rad;
 
         var verts = new Vector3[numIncrements * 2];
-        var norms = new Vector3[numIncrements * 2];
         var tris = new int[(numIncrements - 1) * 2 * 3];
 
         // Calculate verts and triangles

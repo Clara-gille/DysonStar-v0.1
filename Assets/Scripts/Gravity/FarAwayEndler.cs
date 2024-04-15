@@ -8,8 +8,7 @@ public class FarAwayEndlerManager : MonoBehaviour {
     List<Transform> physicsObjects;
     SpaceShipController ship;
     Camera playerCamera;
-
-    public event System.Action PostFloatingOriginUpdate;
+    
 
     void Awake () {
         ship = FindObjectOfType<SpaceShipController> ();
@@ -27,13 +26,6 @@ public class FarAwayEndlerManager : MonoBehaviour {
     }
 
     void FixedUpdate () {
-        UpdateFloatingOrigin ();
-        if (PostFloatingOriginUpdate != null) {
-            PostFloatingOriginUpdate ();
-        }
-    }
-    
-    void UpdateFloatingOrigin () {
         Vector3 originOffset = playerCamera.transform.position;
         float dstFromOrigin = originOffset.magnitude;
 
@@ -43,5 +35,5 @@ public class FarAwayEndlerManager : MonoBehaviour {
             }
         }
     }
-
+    
 }
