@@ -25,4 +25,12 @@ public class Room : MonoBehaviour
         }
     }
     
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.GameObject() == _player)
+        {
+            _cameraFollowRoom.TpClone();
+        }
+    }
+    
 }

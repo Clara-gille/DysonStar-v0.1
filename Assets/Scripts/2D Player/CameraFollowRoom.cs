@@ -28,7 +28,11 @@ public class CameraFollowRoom : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
-        if (_clone != null && _target != target)
+    }
+    
+    public void TpClone()
+    {
+        if (_clone != null)
         {
             _clone.transform.position = _player.transform.position;
         }
