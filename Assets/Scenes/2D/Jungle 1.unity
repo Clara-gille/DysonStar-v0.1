@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1640608213}
-  cameraSize: 20
+  cameraSize: 22
 --- !u!1 &491356357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1966,7 +1966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1597a21341da7c45b4df8874ab54ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothSpeed: 0.01
+  smoothSpeed: 0.02
   offset: {x: 0, y: 0, z: -20}
 --- !u!1 &2018620393
 GameObject:
@@ -2075,7 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2018620394}
-  cameraSize: 10
+  cameraSize: 22
 --- !u!4 &2068134084
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,11 +2104,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 18392792324596960, guid: b3105c623070b49429c5997e846699dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -36.7
       objectReference: {fileID: 0}
     - target: {fileID: 18392792324596960, guid: b3105c623070b49429c5997e846699dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.224916
       objectReference: {fileID: 0}
     - target: {fileID: 18392792324596960, guid: b3105c623070b49429c5997e846699dc, type: 3}
       propertyPath: m_LocalPosition.z
