@@ -25,6 +25,7 @@ public class FreezeClone : MonoBehaviour
         {
             // Toggle freeze/unfreeze the clone
             cloneMovement.enabled = !cloneMovement.enabled;
+            cloneMovement.frozen = !cloneMovement.frozen;
             rb.velocity = Vector2.zero;
             
         }

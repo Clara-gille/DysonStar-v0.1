@@ -24,6 +24,7 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpForce = 16f;
     private bool isFacingRight = true;
+    public bool frozen = false;
 
 
     private void Awake()
@@ -86,6 +87,10 @@ public class PlayerMouvement : MonoBehaviour
     }
     private void PerformJump()
     {
+        if (frozen)
+        {
+            return;
+        }
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         coyoteTimeCounter = 0; 
     }
