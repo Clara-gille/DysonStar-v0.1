@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
   volumeSlider: {fileID: 686646330}
+  fullscreenToggle: {fileID: 903471695}
 --- !u!1 &505483577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,7 +1795,7 @@ MonoBehaviour:
       - m_Target: {fileID: 481703250}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: ToggleFullscreen
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
