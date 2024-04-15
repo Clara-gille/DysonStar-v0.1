@@ -9,9 +9,14 @@ public class CameraFollowRoom : MonoBehaviour
     private float _targetCameraSize;
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
-    
-    
-    
+    private GameObject _clone;
+    private GameObject _player;
+
+    public void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void LateUpdate()
     {
         Vector3 desiredPosition = _target.position + offset;
@@ -23,11 +28,20 @@ public class CameraFollowRoom : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
+        if (_clone != null && _target != target)
+        {
+            _clone.transform.position = _player.transform.position;
+        }
     }
     
     public void ChangeCameraSize(float size)
     {
         _targetCameraSize = size;
+    }
+    
+    public void SetClone(GameObject clone)
+    {
+        _clone = clone;
     }
     
 }
