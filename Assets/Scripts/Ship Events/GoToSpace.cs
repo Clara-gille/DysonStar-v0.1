@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GoToSpace : MonoBehaviour
@@ -8,13 +10,24 @@ public class GoToSpace : MonoBehaviour
 
     private bool readyToGo;
     SceneManager sceneManager;
-   
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private InputActionReference activate;
+
+    private void OnEnable()
     {
-        if(readyToGo && Input.GetKeyDown(KeyCode.UpArrow))
+        activate.action.Enable();
+        activate.action.performed += leave;
+    }
+
+    private void OnDisable()
+    {
+        activate.action.Disable();
+        activate.action.performed -= leave;
+    }
+
+    private void leave(InputAction.CallbackContext context)
+    {
+        if(context.performed && readyToGo)
         {
-            //This will load the next scene
             SceneManager.LoadScene("Orbit tests");
         }
     }

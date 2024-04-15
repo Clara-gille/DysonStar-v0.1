@@ -293,7 +293,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 7ffd40e8-0fff-4fa8-8ca0-25e8b5394964
+    m_ActionId: eb197cdc-72a6-423e-a688-7c02492ca792
     m_ActionName: Player/Freeze[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
@@ -317,8 +317,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  jumpBufferCounter: 0
   speed: 8
   jumpForce: 20
+  frozen: 0
 --- !u!114 &1244835719905563669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,6 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b421e0308391b4ba0b29a108e7e885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  freeze: {fileID: 9109320648088809258, guid: ac5b3aefbc612774598f6f4d24da8977, type: 3}
 --- !u!1 &9199377545291637311
 GameObject:
   m_ObjectHideFlags: 0
