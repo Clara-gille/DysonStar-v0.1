@@ -18,7 +18,7 @@ public class PlayerMouvement : MonoBehaviour
     private float coyoteTimeCounter;
 
     private float jumpBufferTime = 0.2f;
-    private float jumpBufferCounter;
+    public float jumpBufferCounter;
 
     private float horizontal;
     [SerializeField] private float speed = 8f;
@@ -89,7 +89,7 @@ public class PlayerMouvement : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         coyoteTimeCounter = 0; 
     }
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
