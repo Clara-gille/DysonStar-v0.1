@@ -586,6 +586,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2229649910887423547, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
+    - target: {fileID: 2847458000668135515, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: centreDot
       value: 
@@ -618,6 +626,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip
       objectReference: {fileID: 0}
+    - target: {fileID: 6185900155920857541, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
+    - target: {fileID: 7109018107589506401, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
+    - target: {fileID: 7803121258085666675, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1754,7 +1774,7 @@ AudioSource:
   m_GameObject: {fileID: 1287741054}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
   m_audioClip: {fileID: 8300000, guid: d40ccb7b08253484f9f899a0b2824c8b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
