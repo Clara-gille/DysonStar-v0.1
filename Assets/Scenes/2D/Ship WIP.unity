@@ -123,118 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &10024643
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1203946390862758975, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: emitPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447165071112190838, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: emitPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447165071112190838, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: magnetArm
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3330241568760167764, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3429969038776603124, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: redRay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3429969038776603124, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: blueRay
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3429969038776603124, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: emitPoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3429969038776603124, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: magnetArm
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063307789756502806, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063307789756502806, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 78709b8b-dd11-46b9-ab6d-28b5420c468c
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063307789756502806, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: Player/Freeze[/Keyboard/x]
-      objectReference: {fileID: 0}
-    - target: {fileID: 6702282359119860213, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_Name
-      value: MagnetPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6702282359119860213, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8289351007788417758, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      propertyPath: emitPoint
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2447165071112190838, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-    - {fileID: 3429969038776603124, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 485089985103127340, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-    - {fileID: 5066967899588707600, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6702282359119860213, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 289938904}
-  m_SourcePrefab: {fileID: 100100000, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
 --- !u!1 &94621807
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,107 +383,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &289938897 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6702282359119860213, guid: ac3adf9ea83d29a4bb252e7d69b7a6b5, type: 3}
-  m_PrefabInstance: {fileID: 10024643}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &289938904
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 289938897}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &350181515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,6 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 439159c52f5fdb3429ce02c30bf1fc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activate: {fileID: -1854482088697355088, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
 --- !u!61 &901283114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3897,7 +3685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 8c1b0673c806c0c48be6f677fab4f300, type: 3}
-  audioSource: {fileID: 289938904}
+  audioSource: {fileID: 0}
 --- !u!1 &1813544339
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +3937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98425cedf50abb54382ac229a06403d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activate: {fileID: -1854482088697355088, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
 --- !u!61 &2049700502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4558,7 +4347,7 @@ GameObject:
   - component: {fileID: 2145549891}
   - component: {fileID: 2145549894}
   - component: {fileID: 2145549895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elevator Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4722,7 +4511,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1437651722}
   - {fileID: 681828031}
-  - {fileID: 10024643}
   - {fileID: 1230049562}
   - {fileID: 381144850}
   - {fileID: 1566802289}

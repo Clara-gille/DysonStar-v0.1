@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem;  
 
 public class FreezeClone : MonoBehaviour
 {
     // Reference to the CloneMovement script attached to the clone GameObject
     private PlayerMouvement cloneMovement;
     public Rigidbody2D rb;
+
+    [SerializeField] private InputActionReference freeze;
 
     // Start is called before the first frame update
     void Start()
@@ -17,17 +19,29 @@ public class FreezeClone : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
+        freeze.action.Enable();
+        freeze.action.performed += Freeze;
+    }
+
+    private void OnDisable()
+    {
+        freeze.action.Disable();
+        freeze.action.performed -= Freeze;
+    }
+
+    public void Freeze(InputAction.CallbackContext context)
+    {
+        Debug.Log("Freeze");
         // Check if the X key is pressed and toggle freeze/unfreeze
-        if (Keyboard.current.xKey.wasPressedThisFrame && cloneMovement.IsGrounded() == true)
+        if (context.performed && cloneMovement.IsGrounded() == true)
         {
+            Debug.Log("Prout");
             // Toggle freeze/unfreeze the clone
             cloneMovement.enabled = !cloneMovement.enabled;
             cloneMovement.frozen = !cloneMovement.frozen;
             rb.velocity = Vector2.zero;
-            
         }
     }
 }

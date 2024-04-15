@@ -513,6 +513,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8204183674172690946, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8204183674172690946, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 8793788288699020399, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
       propertyPath: m_Name
       value: Character

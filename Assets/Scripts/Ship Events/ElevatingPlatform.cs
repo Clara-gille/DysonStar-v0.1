@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ElevatingPlatform : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ElevatingPlatform : MonoBehaviour
     [SerializeField] private int startPoint;
     [SerializeField] public Transform[] points;
     [SerializeField] public GameObject[] TriggerToDeactivate;
+    [SerializeField] private InputActionReference move;
 
     public int destinationPoint;
     public bool reverse;
