@@ -1,13 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class SpaceShipController : MonoBehaviour
 {
     public Rigidbody _rb;
-    private Camera _cam;
-    private readonly float _baseFOV = 75f;
     
     // Input manager
     private SpacePlayerInputs _inputs;
@@ -38,13 +38,26 @@ public class SpaceShipController : MonoBehaviour
     [SerializeField] private GameObject[] left;
     [SerializeField] private GameObject[] right;
     
+    [Header("Sounds")]
+    [SerializeField] private AudioSource thrusterSound;
+    [SerializeField] private AudioSource explosionSound;
+    [SerializeField] private AudioSource matchingSound;
+    
     [SerializeField] private ParticleSystem explosion;
 
     private void Awake()
     {
         _inputs = new SpacePlayerInputs();
+        _inputs.Player.Inside.performed += _ => GoInside();
+        _inputs.Player.Leave.performed += _ =>  BakcToMenu();
     }
-    
+
+    private void OnDestroy()
+    {
+        _inputs.Player.Inside.performed -= _ => GoInside();
+        _inputs.Player.Leave.performed -= _ =>  BakcToMenu();
+    }
+
     private void OnEnable()
     {
         _inputs.Enable();
@@ -58,18 +71,21 @@ public class SpaceShipController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _cam = Camera.main;
         _hud = FindObjectOfType<ShipHUD>();
 
         //hide and lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        thrusterSound.volume = 0.25f;
     }
 
     private void Update()
     {
         GetRotateInputs();
         GetMovementInputs();
+        
+        matchingSound.enabled = _matching && _hud.lockedBody != null;
     }
 
     private void FixedUpdate()
@@ -113,6 +129,11 @@ public class SpaceShipController : MonoBehaviour
 
     private void ManageThrusters()
     {
+        if (_matching)
+        {
+            return;
+        }
+        
         foreach (GameObject thruster in forward)
         {
             thruster.SetActive(_movementInput.y > 0);
@@ -142,6 +163,10 @@ public class SpaceShipController : MonoBehaviour
         {
             thruster.SetActive(_movementInput.x > 0);
         }
+        //if any thruster is active play sound
+        thrusterSound.pitch = (Mathf.Abs(_movementInput.y) + Mathf.Abs(_movementInput.x) + Mathf.Abs(_upDownInput)) / 3f;
+        
+        thrusterSound.enabled = forward[0].activeSelf || backward[0].activeSelf || up[0].activeSelf || down[0].activeSelf || left[0].activeSelf || right[0].activeSelf;
     }
     
     private void GetRotateInputs()
@@ -170,12 +195,38 @@ public class SpaceShipController : MonoBehaviour
         
             // Apply the acceleration as force
             _rb.AddForce(acceleration, ForceMode.Force);
+            
+            // Activate the thrusters left and right
+         
+            foreach (GameObject thruster in left)
+            {
+                thruster.SetActive(true);
+            }
+            
+            foreach (GameObject thruster in right)
+            {
+                thruster.SetActive(true);
+            }
+            
+            thrusterSound.pitch = 0.5f;
+            thrusterSound.enabled = true;
         }
     }
     
     public void Explode()
     {
         explosion.Play();
+        explosionSound.Play();
+    }
+    
+    public void GoInside(){
+        //Switch to ship interior scene
+        SceneManager.LoadScene("Ship WIP");
+    }
+    
+    public void BakcToMenu(){
+        //Switch to main menu
+        SceneManager.LoadScene("Menu");
     }
 
     public void ToggleThruster(bool state)

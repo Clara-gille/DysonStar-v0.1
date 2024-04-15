@@ -27,11 +27,8 @@ public class ShipHUD : MonoBehaviour {
     Transform camT;
     LockOnUI lockOnUI;
     SpaceShipController ship;
-
-    void Start () {
-        // Need to draw UI AFTER floating origin updates, otherwise may flicker when origin changes
-        // FindObjectOfType<FarAwayEndlerManager> ().PostFloatingOriginUpdate += UpdateUI;
-    }
+    
+    [SerializeField] private AudioSource selectSound;
     
     void Update () {
         UpdateUI ();
@@ -67,6 +64,8 @@ public class ShipHUD : MonoBehaviour {
                 lockedBody = null;
             } else {
                 lockedBody = aimedBody;
+                selectSound.pitch = Random.Range (0.95f, 1f);
+                selectSound.Play();
             }
         }
 
@@ -99,7 +98,6 @@ public class ShipHUD : MonoBehaviour {
 
         // Calculate relative velocity
         Vector3 relativeVelocityWorldSpace = ship._rb.velocity - planet.velocity;
-        //Debug.Log(relativeVelocityWorldSpace +"   player: " + player.velocity + "  planet: " + planet.Velocity);
         float vx = -Vector3.Dot (relativeVelocityWorldSpace, horizontal);
         float vy = -Vector3.Dot (relativeVelocityWorldSpace, vertical);
         float vz = Vector3.Dot (relativeVelocityWorldSpace, dirToPlanet);
@@ -163,14 +161,7 @@ public class ShipHUD : MonoBehaviour {
 
         foreach (var body in bodies) {
             Vector3 offsetToBody = body.transform.position - cam.transform.position;
-            float dstToBody = offsetToBody.magnitude;
-            /*
-            Vector3 viewPointNearPlanet = viewOrigin + viewForward * dstToBody;
-            Vector3 closestSurfacePoint = body.transform.position + (viewPointNearPlanet - body.transform.position).normalized * body.radius;
-            Vector3 dirToClosestSurfacePoint = (closestSurfacePoint - viewOrigin).normalized;
-            float cosAngleToSurface = Vector3.Dot (dirToClosestSurfacePoint, viewForward);
-            float aimAngle = Mathf.Acos (cosAngleToSurface);
-            */
+           
             float aimAngle = Mathf.Acos (Vector3.Dot (viewForward, offsetToBody.normalized));
 
             if (aimAngle < minAngle) {
@@ -191,26 +182,6 @@ public class ShipHUD : MonoBehaviour {
         const int maxMetreDst = 1000;
         string dstString = (distance < maxMetreDst) ? (int) distance + "m" : $"{distance/1000:0}km";
         return dstString;
-    }
-
-    Vector3 CalculateRelativeVelocity (CelestialBody body) {
-        Vector3 dirToBody = (body.transform.position - camT.position).normalized;
-        Vector3 relativeVelocityWorldSpace = ship._rb.velocity - body.velocity;
-
-        // Calculate horizontal/vertical axes relative to direction toward planet
-        Vector3 horizontal = Vector3.Cross (dirToBody, camT.up).normalized;
-        horizontal *= Mathf.Sign (Vector3.Dot (horizontal, camT.right)); // make sure roughly same direction as right vector of cam
-        Vector3 vertical = Vector3.Cross (dirToBody, horizontal).normalized;
-        vertical *= Mathf.Sign (Vector3.Dot (vertical, camT.up));
-
-        float vx = -Vector3.Dot (relativeVelocityWorldSpace, horizontal);
-        float vy = -Vector3.Dot (relativeVelocityWorldSpace, vertical);
-        float vz = Vector3.Dot (relativeVelocityWorldSpace, dirToBody);
-        Vector3 relativeV = new Vector3 (vx, vy, vz);
-
-        // Debug.Log ($"Rel world: {relativeVelocityWorldSpace} rel: {relativeV} speed world: {relativeVelocityWorldSpace.magnitude} speed rel: {relativeV.magnitude}");
-
-        return relativeV;
     }
 
     Vector2 CalculateUIPos (Vector3 worldPos) {

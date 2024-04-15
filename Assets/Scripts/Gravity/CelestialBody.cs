@@ -31,6 +31,8 @@ public class CelestialBody : MonoBehaviour
     public void UpdatePosition(float timeStep)
     {
         rb.MovePosition(rb.position + velocity * timeStep);
+        //rotate the body on itself depending on its velocity
+        meshHolder.Rotate(Vector3.up,  velocity.magnitude * Time.fixedDeltaTime / radius * 360);
     }
 
     private void OnValidate()
