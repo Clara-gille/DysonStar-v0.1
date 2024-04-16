@@ -205,8 +205,8 @@ Transform:
   m_GameObject: {fileID: 6104984879235483947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.66, z: 0}
-  m_LocalScale: {x: 0.1, y: 2.1233673, z: 1}
+  m_LocalPosition: {x: 0, y: -1.8700005, z: 0}
+  m_LocalScale: {x: 0.1, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4964410301875536803}
@@ -324,7 +324,7 @@ MonoBehaviour:
   player: {fileID: 7097356160655031026}
   emitPoint: {fileID: 3296409996624515401}
   endPoint: {fileID: 2181901895661009441}
-  RepusleStrength: 75
+  RepusleStrength: 100
   AttractStrength: 30
 --- !u!1 &6680269627370378989
 GameObject:
@@ -372,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3752837375966929393
 Transform:
   m_ObjectHideFlags: 0
@@ -708,6 +708,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   jumpBufferCounter: 0
+  magnetHorizontal: 0
   speed: 8
   jumpForce: 24
   frozen: 0
@@ -795,8 +796,8 @@ Transform:
   m_GameObject: {fileID: 9027729592570936153}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.6599998, z: 0}
-  m_LocalScale: {x: 0.1, y: 2.1233673, z: 1}
+  m_LocalPosition: {x: 0, y: -1.87, z: 0}
+  m_LocalScale: {x: 0.1, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8759149331023072945}
@@ -914,5 +915,5 @@ MonoBehaviour:
   player: {fileID: 7097356160655031026}
   emitPoint: {fileID: 3296409996624515401}
   endPoint: {fileID: 1033578874086594092}
-  RepusleStrength: 75
+  RepusleStrength: 100
   AttractStrength: 30

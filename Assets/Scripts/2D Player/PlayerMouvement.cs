@@ -21,6 +21,7 @@ public class PlayerMouvement : MonoBehaviour
     public float jumpBufferCounter;
 
     private float horizontal;
+    public float magnetHorizontal;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpForce = 16f;
     private bool isFacingRight = true;
@@ -36,7 +37,9 @@ public class PlayerMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        //Decrease the magnetHorizontal value and cap it at 0
+        magnetHorizontal = Mathf.Lerp(magnetHorizontal, 0, Time.deltaTime * 3);
+        rb.velocity = new Vector2(horizontal * speed + magnetHorizontal, rb.velocity.y);
         if(horizontal > 0f && !isFacingRight)
         {
             Flip();
