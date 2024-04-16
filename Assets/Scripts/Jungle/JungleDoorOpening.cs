@@ -7,6 +7,7 @@ public class JungleDoorOpening : MonoBehaviour
 {
     [SerializeField] private GameObject doorToOpen;
     [SerializeField] private InputActionReference activate;
+    [SerializeField] private bool doorState;
     private bool nearbutton;
 
     private void OnEnable()
@@ -25,7 +26,8 @@ public class JungleDoorOpening : MonoBehaviour
     {
         if (context.performed && nearbutton)
         {
-            doorToOpen.SetActive(false);
+            doorState = !doorState;
+            doorToOpen.SetActive(doorState);
         }
     }
     

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LadderMovement : MonoBehaviour
 {
@@ -8,15 +9,37 @@ public class LadderMovement : MonoBehaviour
     private bool isClimbing;
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private InputActionReference move;
 
-    void Update()
+    private void OnEnable()
     {
-        vertical = Input.GetAxisRaw("Vertical");
+        move.action.Enable();
+        move.action.performed += Climb;
+        move.action.canceled += stopClimb;
+    }
 
-        if (isLadder && Mathf.Abs(vertical) > 0f)
-        {
-            isClimbing = true;
+    private void OnDisable()
+    {
+        move.action.Disable();
+        move.action.performed -= Climb;
+        move.action.canceled -= stopClimb;
+    }
+
+    private void Climb(InputAction.CallbackContext context)
+    {
+        vertical = context.ReadValue<Vector2>().y;
+        if (vertical != 0f)
+        { 
+            if (isLadder && vertical > 0f)
+            {
+                isClimbing = true;
+            }
         }
+    }
+
+    private void stopClimb(InputAction.CallbackContext context)
+    {
+        vertical = 0f;
     }
 
     private void FixedUpdate()
@@ -48,4 +71,5 @@ public class LadderMovement : MonoBehaviour
             isClimbing = false;
         }
     }
+
 }

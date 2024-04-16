@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.2
+  m_Mass: 0.25
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5039960151617748811}
+  move: {fileID: -4707401220791646579, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
 --- !u!114 &6292753519760813705
 MonoBehaviour:
   m_ObjectHideFlags: 0

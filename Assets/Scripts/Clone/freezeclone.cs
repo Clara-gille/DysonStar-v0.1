@@ -42,4 +42,5 @@ public class FreezeClone : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
     }
+    
 }
