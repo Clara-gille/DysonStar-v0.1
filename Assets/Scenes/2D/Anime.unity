@@ -7507,29 +7507,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1884114289495743070, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
-      propertyPath: playerCollider
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2269250220628129827, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: dfc92f3048477d645951a9f3ddda5010, type: 2}
-    - target: {fileID: 5516042165271202326, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 970e3b5d59aeb4b828a631649e7c8a6e, type: 3}
     - target: {fileID: 7097356160655031026, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461371834515917192, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 8461371834515917192, guid: d2b99a636f529dc44a2fab5c5cd9c1fd, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
