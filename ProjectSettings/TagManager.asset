@@ -10,6 +10,7 @@ TagManager:
   - Ladder
   - OneWayPlatform
   - FxTemporaire
+  - LadderIndustrielle
   layers:
   - Default
   - TransparentFX
