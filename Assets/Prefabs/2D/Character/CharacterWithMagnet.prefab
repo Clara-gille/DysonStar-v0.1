@@ -62,37 +62,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7028951898065931908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3241035319849891644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3971558425958922567}
-  m_Layer: 0
-  m_Name: EndPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3971558425958922567
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3241035319849891644}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3628, z: 0}
-  m_LocalScale: {x: 0.11111112, y: 0.1, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 461079805301372808}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3296409996624515401
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,11 +87,11 @@ Transform:
   m_GameObject: {fileID: 3296409996624515401}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.152, z: 0}
-  m_LocalScale: {x: 0.11111112, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.60899997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 461079805301372808}
+  m_Father: {fileID: 3752837375966929393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5877733916766420730
 GameObject:
@@ -354,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7097356160655031026}
   emitPoint: {fileID: 3296409996624515401}
-  endPoint: {fileID: 3241035319849891644}
+  endPoint: {fileID: 2181901895661009441}
   RepusleStrength: 75
   AttractStrength: 30
 --- !u!1 &6680269627370378989
@@ -403,7 +372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3752837375966929393
 Transform:
   m_ObjectHideFlags: 0
@@ -420,6 +389,7 @@ Transform:
   - {fileID: 6301542114809364188}
   - {fileID: 7028951898065931908}
   - {fileID: 8948256410600462902}
+  - {fileID: 2735474031578450004}
   m_Father: {fileID: 461079805301372808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7097356160655031026
@@ -462,8 +432,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4277173329595506223}
-  - {fileID: 2735474031578450004}
-  - {fileID: 3971558425958922567}
   - {fileID: 3752837375966929393}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -945,6 +913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7097356160655031026}
   emitPoint: {fileID: 3296409996624515401}
-  endPoint: {fileID: 3241035319849891644}
+  endPoint: {fileID: 1033578874086594092}
   RepusleStrength: 75
   AttractStrength: 30
