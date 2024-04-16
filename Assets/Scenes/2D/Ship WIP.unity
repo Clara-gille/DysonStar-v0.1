@@ -934,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d50dca2a1bb6f4eb794dda48d31f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  move: {fileID: -4707401220791646579, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
 --- !u!4 &589380989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4836302266860830173, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
@@ -4490,6 +4491,7 @@ MonoBehaviour:
   - {fileID: 1827409291}
   - {fileID: 1240989226}
   - {fileID: 2058730918}
+  move: {fileID: 0}
   destinationPoint: 0
   reverse: 0
   TriggerStatus: 0
