@@ -150,7 +150,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -228,14 +228,6 @@ MonoBehaviour:
     m_ActionId: af09ce12-343c-4165-a2b8-21b34c629296
     m_ActionName: Player/Move[/Keyboard/z,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/q,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4dca5d88-a926-4d42-a642-873122dc7e12
-    m_ActionName: Player/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3f828641-c9a8-401f-8914-76d8c44fd780
-    m_ActionName: Player/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6539823812812742230}
         m_TargetAssemblyTypeName: _PlayerMouvement, Assembly-CSharp
@@ -295,6 +287,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: eb197cdc-72a6-423e-a688-7c02492ca792
     m_ActionName: Player/Freeze[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7f64dccc-1055-4e45-a008-c57cf970f68c
+    m_ActionName: Player/Activate[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
