@@ -33,11 +33,9 @@ public class FreezeClone : MonoBehaviour
 
     public void Freeze(InputAction.CallbackContext context)
     {
-        Debug.Log("Freeze");
         // Check if the X key is pressed and toggle freeze/unfreeze
         if (context.performed && cloneMovement.IsGrounded() == true)
         {
-            Debug.Log("Prout");
             // Toggle freeze/unfreeze the clone
             cloneMovement.enabled = !cloneMovement.enabled;
             cloneMovement.frozen = !cloneMovement.frozen;

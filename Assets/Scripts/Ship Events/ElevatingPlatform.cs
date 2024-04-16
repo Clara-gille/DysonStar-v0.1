@@ -11,7 +11,6 @@ public class ElevatingPlatform : MonoBehaviour
     [SerializeField] private int startPoint;
     [SerializeField] public Transform[] points;
     [SerializeField] public GameObject[] TriggerToDeactivate;
-    [SerializeField] private InputActionReference move;
 
     public int destinationPoint;
     public bool reverse;
