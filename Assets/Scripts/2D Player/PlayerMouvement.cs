@@ -39,6 +39,10 @@ public class PlayerMouvement : MonoBehaviour
     {
         //Decrease the magnetHorizontal value and cap it at 0
         magnetHorizontal = Mathf.Lerp(magnetHorizontal, 0, Time.deltaTime * 3);
+        if (IsGrounded())
+        {
+            magnetHorizontal = 0;
+        }
         rb.velocity = new Vector2(horizontal * speed + magnetHorizontal, rb.velocity.y);
         
         
@@ -103,7 +107,7 @@ public class PlayerMouvement : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        bool grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        bool grounded = Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
         anim.SetBool("IsGrounded", grounded);
         return grounded;
     }
