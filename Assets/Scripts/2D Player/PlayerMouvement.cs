@@ -107,7 +107,7 @@ public class PlayerMouvement : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        bool grounded = Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+        bool grounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(1.5f, 0.2f), 0f, groundLayer);
         anim.SetBool("IsGrounded", grounded);
         return grounded;
     }
