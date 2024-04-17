@@ -325,7 +325,7 @@ MonoBehaviour:
   emitPoint: {fileID: 3296409996624515401}
   endPoint: {fileID: 2181901895661009441}
   RepusleStrength: 100
-  AttractStrength: 30
+  AttractStrength: 50
 --- !u!1 &6680269627370378989
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,4 +925,4 @@ MonoBehaviour:
   emitPoint: {fileID: 3296409996624515401}
   endPoint: {fileID: 1033578874086594092}
   RepusleStrength: 100
-  AttractStrength: 30
+  AttractStrength: 50

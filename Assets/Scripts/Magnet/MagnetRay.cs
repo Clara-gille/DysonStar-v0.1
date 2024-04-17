@@ -28,7 +28,9 @@ public class MagnetRay : MonoBehaviour
         {
             // Attract the player towards the magnet
             Vector3 direction = endPoint.transform.position - emitPoint.transform.position;
-            player.GetComponent<Rigidbody2D>().AddForce(direction.normalized * AttractStrength, ForceMode2D.Force);
+            Vector2 force = direction.normalized * AttractStrength;
+            player.GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Force);
+            player.GetComponent<PlayerMouvement>().magnetHorizontal = force.x / 4;
         }
     }
 }
