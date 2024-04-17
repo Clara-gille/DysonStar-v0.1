@@ -5,14 +5,14 @@ using UnityEngine;
 public class ParentPlatform : MonoBehaviour
 {
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     { 
 
             collision.transform.SetParent(transform);
         
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         
             collision.transform.SetParent(null);
