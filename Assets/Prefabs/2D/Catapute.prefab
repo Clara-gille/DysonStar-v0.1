@@ -223,8 +223,8 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: 10
-    m_UpperAngle: -10
+    m_LowerAngle: -30
+    m_UpperAngle: 330
 --- !u!60 &1229766584000321233
 PolygonCollider2D:
   m_ObjectHideFlags: 0
