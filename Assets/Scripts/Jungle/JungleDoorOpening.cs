@@ -17,10 +17,9 @@ public class JungleDoorOpening : MonoBehaviour
 
     private void openDoor(InputAction.CallbackContext context)
     {
-        Debug.Log("Button pressed");
         if (context.performed && nearbutton)
         {
-            Debug.Log("Button pressed and player is near the button");
+
             foreach (GameObject doorToOpen in doorToOpen)
             {
                 doorToOpen.SetActive(!doorToOpen.activeInHierarchy);
@@ -32,7 +31,7 @@ public class JungleDoorOpening : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player is near the button");
+
             nearbutton = true;
         }
     }
@@ -41,7 +40,7 @@ public class JungleDoorOpening : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player is no longer near the button");
+
             nearbutton = false;
         }
     }
