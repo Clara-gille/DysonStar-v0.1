@@ -11,6 +11,7 @@ public class ElevatingPlatform : MonoBehaviour
     [SerializeField] private int startPoint;
     [SerializeField] public Transform[] points;
     [SerializeField] public GameObject[] TriggerToDeactivate;
+    private AudioSource audioSource;
 
     public int destinationPoint;
     public bool reverse;
@@ -21,6 +22,7 @@ public class ElevatingPlatform : MonoBehaviour
         transform.position = points[startPoint].position;
         destinationPoint = startPoint;
         TriggerStatus = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -43,6 +45,14 @@ public class ElevatingPlatform : MonoBehaviour
         if (canMove)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[destinationPoint].position, speed * Time.deltaTime);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 
