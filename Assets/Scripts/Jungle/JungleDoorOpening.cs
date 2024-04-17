@@ -8,7 +8,9 @@ public class JungleDoorOpening : MonoBehaviour
     [SerializeField] private GameObject[] doorToOpen;
     [SerializeField] private InputActionReference activate;
     private bool nearbutton;
-
+    [SerializeField] private AudioSource openSound;
+    [SerializeField] private AudioSource closeSound;
+    
     private void OnEnable()
     {
         activate.action.Enable();
@@ -23,6 +25,14 @@ public class JungleDoorOpening : MonoBehaviour
             foreach (GameObject doorToOpen in doorToOpen)
             {
                 doorToOpen.SetActive(!doorToOpen.activeInHierarchy);
+                if (doorToOpen.activeInHierarchy)
+                {
+                    closeSound.Play();
+                }
+                else
+                {
+                    openSound.Play();
+                }
             }
         }
     }
