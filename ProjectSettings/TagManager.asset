@@ -11,6 +11,7 @@ TagManager:
   - OneWayPlatform
   - FxTemporaire
   - LadderIndustrielle
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
