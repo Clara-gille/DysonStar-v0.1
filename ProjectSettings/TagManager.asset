@@ -12,6 +12,7 @@ TagManager:
   - FxTemporaire
   - LadderIndustrielle
   - PlayerSpawn
+  - FadeSystem
   layers:
   - Default
   - TransparentFX
