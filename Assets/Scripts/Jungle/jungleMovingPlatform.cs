@@ -10,6 +10,8 @@ public class jungleMovingPlatform : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private int startPoint;
     [SerializeField] public Transform[] points;
+    
+    private AudioSource audioSource;
 
     public int destinationPoint;
 
@@ -17,6 +19,7 @@ public class jungleMovingPlatform : MonoBehaviour
     {
         transform.position = points[startPoint].position;
         destinationPoint = startPoint;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -36,6 +39,14 @@ public class jungleMovingPlatform : MonoBehaviour
         if (canMove)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[destinationPoint].position, speed * Time.deltaTime);
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 }
