@@ -41,6 +41,7 @@ public class LadderMovement : MonoBehaviour
     private void Climb(InputAction.CallbackContext context)
     {
         vertical = context.ReadValue<Vector2>().y;
+
         if (vertical != 0f)
         { 
             if (isLadder && vertical > 0f)
@@ -70,8 +71,10 @@ public class LadderMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.CompareTag("Ladder"))
         {
+
             isLadder = true;
         }
     }
@@ -80,6 +83,7 @@ public class LadderMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
+
             isLadder = false;
             isClimbing = false;
         }
