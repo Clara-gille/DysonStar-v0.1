@@ -3,35 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class JungleDoorOpening : MonoBehaviour
+public class SpawnRock : MonoBehaviour
 {
-    [SerializeField] private GameObject[] doorToOpen;
-    [SerializeField] private InputActionReference activate;
+
     private bool nearbutton;
+    [SerializeField] private GameObject rock;
+    [SerializeField] private GameObject rockSpawnPoint;
+    [SerializeField] private InputActionReference activate;
 
     private void OnEnable()
     {
         activate.action.Enable();
-        activate.action.performed += openDoor;
+        activate.action.performed += RockSpawn;
     }
 
-    private void openDoor(InputAction.CallbackContext context)
+    private void RockSpawn(InputAction.CallbackContext context)
     {
+        // If there's already a rock in the scene, delete it
+        if (GameObject.Find("Big Rock(Clone)") && nearbutton)
+        {
+            Destroy(GameObject.Find("Big Rock(Clone)"));
+        }
         if (context.performed && nearbutton)
         {
-
-            foreach (GameObject doorToOpen in doorToOpen)
-            {
-                doorToOpen.SetActive(!doorToOpen.activeInHierarchy);
-            }
+            Instantiate(rock, rockSpawnPoint.transform.position, Quaternion.identity);
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-
             nearbutton = true;
         }
     }
@@ -40,7 +42,6 @@ public class JungleDoorOpening : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
             nearbutton = false;
         }
     }
