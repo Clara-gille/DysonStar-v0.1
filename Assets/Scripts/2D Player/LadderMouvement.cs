@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,13 @@ public class LadderMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private InputActionReference move;
+    private Animator anim;
+    
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
@@ -23,6 +31,11 @@ public class LadderMovement : MonoBehaviour
         move.action.Disable();
         move.action.performed -= Climb;
         move.action.canceled -= stopClimb;
+    }
+
+    public void Update()
+    {
+        anim.SetBool("IsClimbing", isClimbing);
     }
 
     private void Climb(InputAction.CallbackContext context)

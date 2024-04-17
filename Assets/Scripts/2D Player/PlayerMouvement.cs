@@ -12,7 +12,7 @@ public class PlayerMouvement : MonoBehaviour
     public Rigidbody2D rb;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private Animator anim;
+    [SerializeField] private Animator anim;
 
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
@@ -21,6 +21,7 @@ public class PlayerMouvement : MonoBehaviour
     public float jumpBufferCounter;
 
     private float horizontal;
+    public float magnetHorizontal;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpForce = 16f;
     private bool isFacingRight = true;
@@ -36,7 +37,13 @@ public class PlayerMouvement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        //Decrease the magnetHorizontal value and cap it at 0
+        magnetHorizontal = Mathf.Lerp(magnetHorizontal, 0, Time.deltaTime * 3);
+        rb.velocity = new Vector2(horizontal * speed + magnetHorizontal, rb.velocity.y);
+        
+        
+        anim.SetFloat("HorizontalSpeed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("VerticalSpeed", rb.velocity.y);
         if(horizontal > 0f && !isFacingRight)
         {
             Flip();
@@ -96,7 +103,9 @@ public class PlayerMouvement : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        bool grounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        anim.SetBool("IsGrounded", grounded);
+        return grounded;
     }
 
     private void Flip()

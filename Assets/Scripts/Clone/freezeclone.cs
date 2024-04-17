@@ -8,6 +8,7 @@ public class FreezeClone : MonoBehaviour
     // Reference to the CloneMovement script attached to the clone GameObject
     private PlayerMouvement cloneMovement;
     public Rigidbody2D rb;
+    [SerializeField] private Animator anim;
 
     [SerializeField] private InputActionReference freeze;
 
@@ -17,6 +18,7 @@ public class FreezeClone : MonoBehaviour
         // Get the CloneMovement component attached to the clone GameObject
         cloneMovement = GetComponent<PlayerMouvement>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -40,6 +42,7 @@ public class FreezeClone : MonoBehaviour
             cloneMovement.enabled = !cloneMovement.enabled;
             cloneMovement.frozen = !cloneMovement.frozen;
             rb.velocity = Vector2.zero;
+            anim.SetBool("IsFrozen", cloneMovement.frozen);
         }
     }
     

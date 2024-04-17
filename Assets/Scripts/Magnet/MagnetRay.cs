@@ -18,7 +18,11 @@ public class MagnetRay : MonoBehaviour
         {
             // Repulse the player in the opposite direction of the ray
             Vector3 direction = endPoint.transform.position - emitPoint.transform.position;
-            player.GetComponent<Rigidbody2D>().AddForce(-direction.normalized * RepusleStrength / 25, ForceMode2D.Impulse);
+            Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+            Vector2 force = -direction.normalized * RepusleStrength / 25;
+            rb.AddForce(force, ForceMode2D.Impulse);
+            //Add horizontal force to the player mouvements
+            player.GetComponent<PlayerMouvement>().magnetHorizontal = force.x * 4;
         }
         else if (other.CompareTag(CompareTag("Blue") ? "Red" : "Blue")) // If block of different color
         {
