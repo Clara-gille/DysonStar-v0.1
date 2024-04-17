@@ -26,6 +26,8 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] private float jumpForce = 16f;
     private bool isFacingRight = true;
     public bool frozen = false;
+    
+    [SerializeField] private AudioSource jumpSound;
 
 
     private void Awake()
@@ -103,6 +105,8 @@ public class PlayerMouvement : MonoBehaviour
             return;
         }
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        jumpSound.pitch = Random.Range(0.9f, 1.15f);
+        jumpSound.Play();
         coyoteTimeCounter = 0; 
     }
     public bool IsGrounded()
