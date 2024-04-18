@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -548,7 +548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 555.93616
+      value: 555.9386
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -556,11 +556,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 834
+      value: 1494.9917
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6117651
+      value: -0.58782035
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7910396
+      value: 0.80899155
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalRotation.z
@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -464.566
+      value: -467.995
       objectReference: {fileID: 0}
     - target: {fileID: 277191886435753598, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -594,6 +594,14 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
+    - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: moveSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4037412649848385272, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: forwardMultiplier
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4390114443714512601, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: centreDot
       value: 
