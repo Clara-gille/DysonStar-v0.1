@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landingDistance: 170
   destroyDistance: 175
-  landable: 1
+  landable: 0
   spaceShip: {fileID: 1036094240}
   landingText: {fileID: 1280994697}
   destroyText: {fileID: 1693204479}
@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landingDistance: 200
   destroyDistance: 160
-  landable: 1
+  landable: 0
   spaceShip: {fileID: 1036094240}
   landingText: {fileID: 1280994697}
   destroyText: {fileID: 1693204479}
