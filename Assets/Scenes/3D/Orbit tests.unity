@@ -627,6 +627,14 @@ PrefabInstance:
       value: SpaceShip
       objectReference: {fileID: 0}
     - target: {fileID: 6185900155920857541, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_Pitch
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185900155920857541, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
+      propertyPath: m_Volume
+      value: 0.251
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185900155920857541, guid: 0df3818510e39dc45be33141c1e9eac5, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 24300002, guid: 4a9a9af9983c1bc4eb4319a6285683d4, type: 2}
