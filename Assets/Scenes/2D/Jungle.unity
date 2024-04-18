@@ -1486,7 +1486,7 @@ GameObject:
   - component: {fileID: 197766307}
   - component: {fileID: 197766309}
   - component: {fileID: 197766308}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Wall 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1605,6 +1605,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &213852930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213852931}
+  m_Layer: 8
+  m_Name: Rock Spawn Point (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213852931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213852930}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 43.98, y: 20.84, z: 5.8339972}
+  m_LocalScale: {x: 4.4711013, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2068385916}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221665769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2469,7 @@ GameObject:
   - component: {fileID: 330471238}
   - component: {fileID: 330471237}
   - component: {fileID: 330471236}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Door 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4514,7 +4545,7 @@ GameObject:
   - component: {fileID: 547179811}
   - component: {fileID: 547179810}
   - component: {fileID: 547179809}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: 'Jungle Door 0 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4814,6 +4845,10 @@ PrefabInstance:
     - target: {fileID: 8793788288699020399, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793788288699020399, guid: 293ec5d8eee252f45b1e0dde289bbffa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5300,7 +5335,7 @@ GameObject:
   - component: {fileID: 679895163}
   - component: {fileID: 679895165}
   - component: {fileID: 679895164}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Wall 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6841,7 +6876,7 @@ GameObject:
   - component: {fileID: 878485201}
   - component: {fileID: 878485200}
   - component: {fileID: 878485199}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Door 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8462,7 +8497,7 @@ GameObject:
   - component: {fileID: 1087556702}
   - component: {fileID: 1087556704}
   - component: {fileID: 1087556703}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10324,7 +10359,7 @@ GameObject:
   - component: {fileID: 1233388743}
   - component: {fileID: 1233388745}
   - component: {fileID: 1233388744}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Wall 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11389,28 +11424,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1331651886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7469246952749844332, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-  m_PrefabInstance: {fileID: 7909095350173941064}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1331651887 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-  m_PrefabInstance: {fileID: 7909095350173941064}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1331651892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331651886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb6c9d3a4190d34eb262a39a0999c25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1344754936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11835,7 +11848,7 @@ GameObject:
   - component: {fileID: 1393042750}
   - component: {fileID: 1393042752}
   - component: {fileID: 1393042751}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Wall 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15658,7 +15671,7 @@ GameObject:
   - component: {fileID: 1960277419}
   - component: {fileID: 1960277418}
   - component: {fileID: 1960277417}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Bloc 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15786,10 +15799,10 @@ GameObject:
   - component: {fileID: 1987990242}
   - component: {fileID: 1987990246}
   - component: {fileID: 1987990245}
-  - component: {fileID: 1987990244}
   - component: {fileID: 1987990243}
   - component: {fileID: 1987990248}
   - component: {fileID: 1987990247}
+  - component: {fileID: 1987990249}
   m_Layer: 0
   m_Name: Button 0
   m_TagString: Untagged
@@ -15857,23 +15870,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.030476, y: 1.8060335}
   m_EdgeRadius: 0
---- !u!114 &1987990244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987990241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2028fb4d9da9c3441892b597a086d4b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorToOpen:
-  - {fileID: 1331651886}
-  activate: {fileID: -1854482088697355088, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
-  openSound: {fileID: 1987990248}
-  closeSound: {fileID: 1987990248}
 --- !u!23 &1987990245
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16116,6 +16112,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1987990249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987990241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1d32dcb1248984ca548c5f5044ffd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rock: {fileID: 7469246952749844332, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
+  rockSpawnPoint: {fileID: 213852930}
+  activate: {fileID: -1854482088697355088, guid: 182cd3347f5bf5c4786881cb82e053c5, type: 3}
 --- !u!1 &1990314522
 GameObject:
   m_ObjectHideFlags: 0
@@ -16936,7 +16947,6 @@ Transform:
   - {fileID: 1179825127}
   - {fileID: 1145862849}
   - {fileID: 401917313}
-  - {fileID: 1331651887}
   - {fileID: 813084129}
   - {fileID: 1987990242}
   - {fileID: 1129724581}
@@ -16951,6 +16961,7 @@ Transform:
   - {fileID: 1880526205}
   - {fileID: 230118383}
   - {fileID: 636105414}
+  - {fileID: 213852931}
   - {fileID: 509654880}
   - {fileID: 1070633768}
   - {fileID: 825313476}
@@ -17705,7 +17716,7 @@ GameObject:
   - component: {fileID: 2128081119}
   - component: {fileID: 2128081121}
   - component: {fileID: 2128081120}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jungle Door 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17824,70 +17835,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &7909095350173941064
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2068385916}
-    m_Modifications:
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 44.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 21.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.7000866
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343502644988123319, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469246952749844332, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_Name
-      value: Big Rock
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469246952749844332, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7469246952749844332, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1331651892}
-  m_SourcePrefab: {fileID: 100100000, guid: bf79ebdb3ffebb9408587bf687e51357, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
