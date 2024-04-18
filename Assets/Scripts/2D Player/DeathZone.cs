@@ -19,7 +19,7 @@ public class DeathZone : MonoBehaviour
     private IEnumerator ReplacePlayer(Collider2D collision)
     {
         FadeSystem.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
         collision.transform.position = playerSpawn.position;
     }
 }
