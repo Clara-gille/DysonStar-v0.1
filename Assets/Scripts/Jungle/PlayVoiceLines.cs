@@ -9,16 +9,13 @@ public class PlayVoiceLines : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered");
         
         if (other.CompareTag("Player") && !hasPlayed)
         {
             hasPlayed = true;
-            Debug.Log("Playing");
             foreach (AudioSource voiceLine in voiceLine)
             {
                 voiceLine.Play();
-                Debug.Log("Played");
             }
             
         }

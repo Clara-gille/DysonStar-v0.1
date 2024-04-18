@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class WakingUp : MonoBehaviour
 {
 
-    public AudioClip audioClip;
-    public AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
+    private const string WAKEUP = "WakeUp";
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        audioSource.PlayOneShot(audioClip);
+        if(!EditorPrefs.HasKey(WAKEUP))
+        {
+            //play audio
+            audioSource.Play();
+            EditorPrefs.SetBool(WAKEUP, true);
+        }
+
     }
 }
