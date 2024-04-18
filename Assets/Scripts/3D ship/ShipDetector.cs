@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShipDetector : MonoBehaviour
@@ -115,7 +116,15 @@ public class ShipDetector : MonoBehaviour
     {
         if (landable && _isClose)
         {
-            Debug.Log("Landed on " + name);
+            if (gameObject.name == "Corellia")
+            {
+                SceneManager.LoadScene("Jungle");
+            }
+
+            if (gameObject.name == "Honoghr")
+            {
+                SceneManager.LoadScene("Industrielle");
+            }
         }
     }
 }
