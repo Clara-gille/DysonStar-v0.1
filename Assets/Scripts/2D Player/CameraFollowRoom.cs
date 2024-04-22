@@ -8,15 +8,10 @@ public class CameraFollowRoom : MonoBehaviour
     private Transform _target;
     private float _targetCameraSize;
     public float smoothSpeed = 0.125f;
-    public Vector3 offset;
-    private GameObject _clone;
-    private GameObject _player;
+    public Vector3 offset; // Usually (0, 0, -20)
+    
 
-    public void Start()
-    {
-        _player = GameObject.FindGameObjectWithTag("Player");
-    }
-
+    // after every frames, slowly move the camera to the target position and resize it 
     void LateUpdate()
     {
         Vector3 desiredPosition = _target.position + offset;
@@ -25,27 +20,15 @@ public class CameraFollowRoom : MonoBehaviour
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, _targetCameraSize, smoothSpeed);
     }
     
+    //Change target of the camera
     public void SetTarget(Transform target)
     {
         _target = target;
     }
     
-    public void TpClone()
-    {
-        if (_clone != null)
-        {
-            _clone.transform.position = _player.transform.position;
-        }
-    }
-    
+    //Change the camera size
     public void ChangeCameraSize(float size)
     {
         _targetCameraSize = size;
     }
-    
-    public void SetClone(GameObject clone)
-    {
-        _clone = clone;
-    }
-    
 }
