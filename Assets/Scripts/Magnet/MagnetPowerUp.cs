@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MagnetPowerUp : MonoBehaviour
+namespace Magnet
 {
-    [SerializeField] private GameObject magnetArm;
-    
-    // Detect when there's a collision with a trigger
-    private void OnTriggerEnter2D(Collider2D other)
+    public class MagnetPowerUp : MonoBehaviour
     {
-        if (other.CompareTag("Player")) // If player collides with the powerup
+        [SerializeField] private GameObject magnetArm;
+    
+        // Detect when there's a collision with a trigger
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            // Enable the magnet arm
-            magnetArm.SetActive(true);
-            Destroy(gameObject); // Destroy the powerup
+            if (other.CompareTag("Player")) // If player collides with the powerup
+            {
+                // Enable the magnet arm
+                magnetArm.SetActive(true);
+                Destroy(gameObject); // Destroy the powerup
+            }
         }
     }
 }
