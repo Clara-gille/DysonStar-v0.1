@@ -9,6 +9,7 @@ public class SpawnPointThreeD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set the spawn point to the spaceship's position
         transform.position = spaceShip.transform.position;
     }
 }

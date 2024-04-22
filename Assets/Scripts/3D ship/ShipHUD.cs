@@ -25,7 +25,7 @@ public class ShipHUD : MonoBehaviour {
     public CelestialBody lockedBody;
     Camera cam;
     Transform camT;
-    LockOnUI lockOnUI;
+    UILocker _uiLocker;
     SpaceShipController ship;
     
     [SerializeField] private AudioSource selectSound;
@@ -40,8 +40,8 @@ public class ShipHUD : MonoBehaviour {
         }
         camT = cam.transform;
 
-        if (lockOnUI == null) {
-            lockOnUI = GetComponent<LockOnUI> ();
+        if (_uiLocker == null) {
+            _uiLocker = GetComponent<UILocker> ();
         }
 
         if (ship == null) {
@@ -56,7 +56,7 @@ public class ShipHUD : MonoBehaviour {
         CelestialBody aimedBody = FindAimedBody ();
 
         if (aimedBody && aimedBody != lockedBody) {
-            lockOnUI.DrawLockOnUI (aimedBody, false);
+            _uiLocker.DrawLockOnUI (aimedBody, false);
         }
 
         if (Input.GetMouseButtonDown (0)) {
@@ -70,7 +70,7 @@ public class ShipHUD : MonoBehaviour {
         }
 
         if (lockedBody) {
-            lockOnUI.DrawLockOnUI (lockedBody, true);
+            _uiLocker.DrawLockOnUI (lockedBody, true);
             DrawPlanetHUD (lockedBody);
         } else {
             SetHudActive (false);
@@ -104,7 +104,7 @@ public class ShipHUD : MonoBehaviour {
         Vector3 relativeVelocity = new Vector3 (vx, vy, vz);
 
         // Planet info
-        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * (planet.radius * lockOnUI.lockedRadiusMultiplier * 1.8f) + vertical * (planet.radius * 1.5f) ;
+        Vector3 planetInfoWorldPos = planet.transform.position + horizontal * (planet.radius * _uiLocker.lockedRadiusMultiplier * 1.8f) + vertical * (planet.radius * 1.5f) ;
         planetInfo.gameObject.SetActive (PointIsOnScreen (planetInfoWorldPos));
         planetInfo.rectTransform.localPosition = CalculateUIPos (planetInfoWorldPos);
         planetInfo.text = $"{planet.bodyName} \n{FormatDistance(dstToPlanetSurface)} \n{relativeVelocity.z:0}m/s";
@@ -115,12 +115,12 @@ public class ShipHUD : MonoBehaviour {
             float arrowHeadSize = Mathf.Lerp (velocityIndicatorSizeMinMax.y, velocityIndicatorSizeMinMax.x, arrowHeadSizePercent);
             float indicatorThickness = Mathf.Lerp (velocityIndicatorThicknessMinMax.y, velocityIndicatorThicknessMinMax.x, dstToPlanetSurface / maxVisDst);
             float indicatorAngle = (relativeVelocity.x < 0) ? 180 : 0;
-            var indicatorPos = CalculateUIPos (planet.transform.position + horizontal * planet.radius * lockOnUI.lockedRadiusMultiplier * Mathf.Sign (relativeVelocity.x));
+            var indicatorPos = CalculateUIPos (planet.transform.position + horizontal * planet.radius * _uiLocker.lockedRadiusMultiplier * Mathf.Sign (relativeVelocity.x));
             float indicatorMagnitude = Mathf.Abs (relativeVelocity.x) * velocityDisplayScale;
             velocityHorizontal.Update (indicatorAngle, indicatorPos, indicatorMagnitude, arrowHeadSize, indicatorThickness);
 
             indicatorAngle = (relativeVelocity.y < 0) ? 270 : 90;
-            indicatorPos = CalculateUIPos (planet.transform.position + camT.up * planet.radius * lockOnUI.lockedRadiusMultiplier * Mathf.Sign (relativeVelocity.y));
+            indicatorPos = CalculateUIPos (planet.transform.position + camT.up * planet.radius * _uiLocker.lockedRadiusMultiplier * Mathf.Sign (relativeVelocity.y));
             indicatorMagnitude = Mathf.Abs (relativeVelocity.y) * velocityDisplayScale;
             velocityVertical.Update (indicatorAngle, indicatorPos, indicatorMagnitude, arrowHeadSize, indicatorThickness);
 

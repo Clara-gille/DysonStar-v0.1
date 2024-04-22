@@ -81,16 +81,17 @@ public class SpaceShipController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+        //get player inputs
         GetRotateInputs();
         GetMovementInputs();
         
         matchingSound.enabled = _matching && _hud.lockedBody != null;
     }
-
+    
+    //update player movement and camera every frames
     private void FixedUpdate()
     {
-        //update player movement and camera
         ShipMove();
         ShipRotate();
         ManageThrusters();
@@ -126,7 +127,8 @@ public class SpaceShipController : MonoBehaviour
         Vector3 torque = new Vector3(-_yRotationInput, _xRotationInput, _zRotationInput * tiltSpeed);
         _rb.AddRelativeTorque(torque, ForceMode.Force);
     }
-
+    
+    //Display or hide thrusters based on player inputs
     private void ManageThrusters()
     {
         if (_matching)
@@ -183,6 +185,7 @@ public class SpaceShipController : MonoBehaviour
         _matching = _inputs.Player.Match.IsInProgress();
     }
     
+    //Match the speed of the ship with the locked planet
     private void MatchSpeed()
     {
         if (_hud.lockedBody != null)
@@ -228,7 +231,8 @@ public class SpaceShipController : MonoBehaviour
         //Switch to main menu
         SceneManager.LoadScene("Menu");
     }
-
+    
+    //Toggle thrusters on and off
     public void ToggleThruster(bool state)
     {
         foreach (GameObject thruster in forward)

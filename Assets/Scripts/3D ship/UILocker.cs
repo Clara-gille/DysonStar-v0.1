@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [ExecuteInEditMode]
-public class LockOnUI : MonoBehaviour {
+public class UILocker : MonoBehaviour {
 
-    public int numSegments = 50;
+    public int segmentsNbr = 50;
     public Material mat;
     public float thickness;
 
@@ -21,7 +21,7 @@ public class LockOnUI : MonoBehaviour {
     public float aimedAngle;
     public Color aimedColor;
 
-    Camera playerCam;
+    Camera cam;
     MaterialPropertyBlock materialProperties;
     Mesh lockedOnMesh;
     Mesh aimMesh;
@@ -37,8 +37,8 @@ public class LockOnUI : MonoBehaviour {
             aimMesh = new Mesh ();
         }
 
-        if (playerCam == null) {
-            playerCam = Camera.main;
+        if (cam == null) {
+            cam = Camera.main;
         }
     }
 
@@ -46,13 +46,13 @@ public class LockOnUI : MonoBehaviour {
         Init ();
 
         Vector3 bodyCentre = body.transform.position;
-        float pixelsPerUnit = (playerCam.WorldToScreenPoint (bodyCentre) - playerCam.WorldToScreenPoint (bodyCentre + playerCam.transform.up)).magnitude;
+        float pixelsPerUnit = (cam.WorldToScreenPoint (bodyCentre) - cam.WorldToScreenPoint (bodyCentre + cam.transform.up)).magnitude;
         float worldThickness = thickness / pixelsPerUnit;
 
         float innerRadius = body.radius * ((lockedOn) ? lockedRadiusMultiplier : aimedRadiusMultiplier);
         float outerRadius = innerRadius + worldThickness;
 
-        int numIncrements = Mathf.Max (5, numSegments);
+        int numIncrements = Mathf.Max (5, segmentsNbr);
 
         float angle = (lockedOn) ? lockedAngle : aimedAngle;
         float angleIncrement = (angle / (numIncrements - 1f)) * Mathf.Deg2Rad;
@@ -86,11 +86,11 @@ public class LockOnUI : MonoBehaviour {
 
         // Draw mesh 4 times around planet
         float drawAngle = 45 - angle / 2;
-        var dirToPlayer = (playerCam.transform.position - body.transform.position).normalized;
-        var rot = Quaternion.AngleAxis (drawAngle, dirToPlayer) * Quaternion.LookRotation (dirToPlayer, playerCam.transform.up);
+        var dirToPlayer = (cam.transform.position - body.transform.position).normalized;
+        var rot = Quaternion.AngleAxis (drawAngle, dirToPlayer) * Quaternion.LookRotation (dirToPlayer, cam.transform.up);
         var rot90 = Quaternion.AngleAxis (90, dirToPlayer);
 
-        float dstToBodySurface = Mathf.Max (0, (playerCam.transform.position - body.transform.position).magnitude - body.radius);
+        float dstToBodySurface = Mathf.Max (0, (cam.transform.position - body.transform.position).magnitude - body.radius);
         float alpha = Mathf.InverseLerp (surfaceDstFadeOutRange.y, surfaceDstFadeOutRange.x, dstToBodySurface);
         Color displayCol = (lockedOn) ? lockedColor : aimedColor;
 

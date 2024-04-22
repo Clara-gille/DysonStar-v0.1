@@ -51,10 +51,12 @@ public class ShipDetector : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        //Check if the ship is close to the planet
         if ((spaceShip.transform.position - transform.position).magnitude < destroyDistance)
         {
             StartCoroutine(RespawnShip());
         }
+        //Check if the ship is close enough to land
         else if ((spaceShip.transform.position - transform.position).magnitude < landingDistance)
         {
             landingText.text = landable ? "Press [Enter] to land on " + name : "You can't land on " + name;
@@ -62,6 +64,7 @@ public class ShipDetector : MonoBehaviour
             landingText.gameObject.SetActive(true);
             
         }
+        //Hide landing text if the ship is not close anymore
         else if (_isClose)
         {
             landingText.gameObject.SetActive(false);
@@ -69,6 +72,7 @@ public class ShipDetector : MonoBehaviour
         }
     }
     
+    //Draw gizmos to show the landing and destroy distances in the editor
     private void OnDrawGizmos()
     {
         if (drawGizmos)
@@ -80,6 +84,7 @@ public class ShipDetector : MonoBehaviour
         }
     }
     
+    //Respawn the ship and show a message for a few seconds
     private IEnumerator RespawnShip()
     {
         //trigger explosion using method
@@ -112,6 +117,7 @@ public class ShipDetector : MonoBehaviour
         destroyText.gameObject.SetActive(false);
     }
     
+    //Land on the planets
     private void Land()
     {
         if (landable && _isClose)
