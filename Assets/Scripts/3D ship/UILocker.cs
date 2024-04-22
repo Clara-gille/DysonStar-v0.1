@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Gravity;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -42,7 +43,7 @@ public class UILocker : MonoBehaviour {
         }
     }
 
-    public void DrawLockOnUI (CelestialBody body, bool lockedOn) {
+    public void DrawLockOnUI (SpaceObject body, bool lockedOn) {
         Init ();
 
         Vector3 bodyCentre = body.transform.position;

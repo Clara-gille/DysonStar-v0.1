@@ -191,7 +191,7 @@ public class SpaceShipController : MonoBehaviour
         if (_hud.lockedBody != null)
         {
             // Calculate the difference in velocity
-            Vector3 velocityDifference = _hud.lockedBody.velocity - _rb.velocity;
+            Vector3 velocityDifference = _hud.lockedBody.Velocity - _rb.velocity;
         
             // Calculate the acceleration needed to match the speed
             Vector3 acceleration = velocityDifference * matchingSpeed / Time.fixedDeltaTime;

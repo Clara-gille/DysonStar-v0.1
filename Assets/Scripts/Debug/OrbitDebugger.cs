@@ -2,28 +2,28 @@ using Gravity;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class OrbitDisplay : MonoBehaviour {
+public class OrbitDebugger : MonoBehaviour {
     
     //number of steps to simulate
-    [SerializeField] int numSteps = 1000;
+    [SerializeField] private int numSteps = 1000;
     //time between steps
     [SerializeField] float timeStep = 0.1f;
     
     //draw the orbits relative to the central body or the origin
     [SerializeField] bool relativeToBody;
     //the central body to draw the orbits relative to
-    [SerializeField] CelestialBody centralBody;
+    [SerializeField] SpaceObject centralBody;
     
     void Update () {
         //stop the preview from running in play mode
         if (!Application.isPlaying) {
-            DrawOrbits ();
+            DisplayOrbits ();
         }
     }
 
-    void DrawOrbits () {
+    void DisplayOrbits () {
         //get all the bodies in the scene
-        CelestialBody[] bodies = FindObjectsOfType<CelestialBody> ();
+        SpaceObject[] bodies = FindObjectsOfType<SpaceObject> ();
         var virtualBodies = new VirtualBody[bodies.Length];
         var drawPoints = new Vector3[bodies.Length][];
         int referenceFrameIndex = 0;
@@ -95,15 +95,16 @@ public class OrbitDisplay : MonoBehaviour {
         return acceleration;
     }
     
+    //a virtual body class to store the position, velocity and mass of a body without moving the actual body
     class VirtualBody {
         public Vector3 position;
         public Vector3 velocity;
         public float mass;
 
-        public VirtualBody (CelestialBody body) {
+        public VirtualBody (SpaceObject body) {
             position = body.transform.position;
             velocity = body.initialVelocity;
-            mass = body.mass;
+            mass = body.Mass;
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Gravity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class ShipHUD : MonoBehaviour {
     public float velocityDisplayScale = 1;
     private const float MaxVelocityDisplay = 100;
 
-    public CelestialBody lockedBody;
+    public SpaceObject lockedBody;
     Camera cam;
     Transform camT;
     UILocker _uiLocker;
@@ -53,7 +54,7 @@ public class ShipHUD : MonoBehaviour {
         Init ();
 
         centreDot.rectTransform.localScale = Vector3.one * dotSize;
-        CelestialBody aimedBody = FindAimedBody ();
+        SpaceObject aimedBody = FindAimedBody ();
 
         if (aimedBody && aimedBody != lockedBody) {
             _uiLocker.DrawLockOnUI (aimedBody, false);
@@ -84,7 +85,7 @@ public class ShipHUD : MonoBehaviour {
         matchHint.gameObject.SetActive (active);
     }
 
-    void DrawPlanetHUD (CelestialBody planet) {
+    void DrawPlanetHUD (SpaceObject planet) {
         SetHudActive (true);
         Vector3 dirToPlanet = (planet.transform.position - camT.position).normalized;
         float dstToPlanetCentre = (planet.transform.position - camT.position).magnitude;
@@ -97,7 +98,7 @@ public class ShipHUD : MonoBehaviour {
         vertical *= Mathf.Sign (Vector3.Dot (vertical, camT.up));
 
         // Calculate relative velocity
-        Vector3 relativeVelocityWorldSpace = ship._rb.velocity - planet.velocity;
+        Vector3 relativeVelocityWorldSpace = ship._rb.velocity - planet.Velocity;
         float vx = -Vector3.Dot (relativeVelocityWorldSpace, horizontal);
         float vy = -Vector3.Dot (relativeVelocityWorldSpace, vertical);
         float vz = Vector3.Dot (relativeVelocityWorldSpace, dirToPlanet);
@@ -131,9 +132,9 @@ public class ShipHUD : MonoBehaviour {
 
     }
 
-    CelestialBody FindAimedBody () {
-        CelestialBody[] bodies = FindObjectsOfType<CelestialBody> ();
-        CelestialBody aimedBody = null;
+    SpaceObject FindAimedBody () {
+        SpaceObject[] bodies = FindObjectsOfType<SpaceObject> ();
+        SpaceObject aimedBody = null;
 
         Vector3 viewForward = cam.transform.forward;
         Vector3 viewOrigin = cam.transform.position;
