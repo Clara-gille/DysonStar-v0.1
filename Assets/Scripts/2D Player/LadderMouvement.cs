@@ -26,13 +26,6 @@ public class LadderMovement : MonoBehaviour
         move.action.canceled += stopClimb;
     }
 
-    private void OnDisable()
-    {
-        move.action.Disable();
-        move.action.performed -= Climb;
-        move.action.canceled -= stopClimb;
-    }
-
     public void Update()
     {
         anim.SetBool("IsClimbing", isClimbing);

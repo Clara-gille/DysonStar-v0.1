@@ -31,6 +31,7 @@ public class SpawnRock : MonoBehaviour
         }
         if (context.performed && nearbutton)
         {
+            // Spawn a rock at the rockSpawnPoint position
             Instantiate(rock, rockSpawnPoint.transform.position, Quaternion.identity);
             rockSound.Play();
         }

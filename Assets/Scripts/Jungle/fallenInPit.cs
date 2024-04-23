@@ -10,6 +10,7 @@ public class fallenInPit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Teleport the player to the respawn point
             other.transform.position = respawnPoint.position;
         }
     }

@@ -22,6 +22,7 @@ public class jungleMovingPlatform : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    // This scripts moves the associated platform following the same logic as the ElevatingPlatform script but does so automatically and without handling any triggers
     private void Update()
     {
         if (Vector3.Distance(transform.position, points[destinationPoint].position) < 0.01f)

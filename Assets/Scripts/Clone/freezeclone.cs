@@ -27,12 +27,6 @@ public class FreezeClone : MonoBehaviour
         freeze.action.performed += Freeze;
     }
 
-    private void OnDisable()
-    {
-        freeze.action.Disable();
-        freeze.action.performed -= Freeze;
-    }
-
     public void Freeze(InputAction.CallbackContext context)
     {
         // Check if the X key is pressed and toggle freeze/unfreeze
@@ -41,6 +35,7 @@ public class FreezeClone : MonoBehaviour
             // Toggle freeze/unfreeze the clone
             cloneMovement.enabled = !cloneMovement.enabled;
             cloneMovement.frozen = !cloneMovement.frozen;
+            // Stop the clone from moving so he doesn't slide to infinity
             rb.velocity = Vector2.zero;
             anim.SetBool("IsFrozen", cloneMovement.frozen);
         }
