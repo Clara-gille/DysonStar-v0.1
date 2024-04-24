@@ -14,6 +14,8 @@ TagManager:
   - PlayerSpawn
   - FadeSystem
   - VisualCheckpoint
+  - TpArrival
+  - TpArrival2
   layers:
   - Default
   - TransparentFX
