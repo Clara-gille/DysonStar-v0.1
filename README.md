@@ -1,2 +1,4 @@
-# DysonStar v0.1
+# DysonStar
+
+This is a game project made with Unity and set in space.
 
